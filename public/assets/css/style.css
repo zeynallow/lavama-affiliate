@@ -1,8 +1,16 @@
-.toast.error{
+.toast.error {
     background-color: #e95b5b;
     color: #fff;
 }
-.toast.success{
+
+.toast.success {
     background-color: #22b26b;
     color: #fff;
+}
+
+.hp-table-card .table > thead > tr > th {
+    background: none;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
 }

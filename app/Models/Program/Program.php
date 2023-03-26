@@ -19,4 +19,11 @@ class Program extends Model
         'click_commission_type' => ProgramCommissionTypeEnum::class,
     ];
 
+    public function scopeOwner($query)
+    {
+        $user = auth()->user();
+        $query->whereIn('owner_vendor_id', $user->vendors->pluck('id'))
+            ->where('owner_user_id', $user->id);
+    }
+
 }

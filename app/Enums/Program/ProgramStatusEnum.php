@@ -4,7 +4,16 @@ namespace App\Enums\Program;
 
 enum ProgramStatusEnum: string
 {
-    case PENDING = 'pending';
-    case ACTIVATED = 'activated';
-    case DEACTIVATED = 'deactivated';
+    case Pending = 'pending';
+    case Activated = 'activated';
+    case Deactivated = 'deactivated';
+
+    public function color(): string
+    {
+        return match ($this) {
+            ProgramStatusEnum::Pending => 'warning',
+            ProgramStatusEnum::Activated => 'success',
+            ProgramStatusEnum::Deactivated => 'danger',
+        };
+    }
 }

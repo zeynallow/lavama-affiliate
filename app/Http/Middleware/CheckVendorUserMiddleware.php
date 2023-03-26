@@ -17,7 +17,7 @@ class CheckVendorUserMiddleware
         # Check Vendor User
         $user = Auth::user();
 
-        if ($user->provider == UserProviderEnum::VENDOR->value) {
+        if ($user->provider == UserProviderEnum::Vendor->value) {
             return $next($request);
         }
 

@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="col-12 mt-24">
-                        <a class="hp-p1-body fw-medium" href="index.html">Logout</a>
+                        <a class="hp-p1-body fw-medium" href="{{route('auth.handleSignOut')}}">Logout</a>
                     </div>
                 </div>
             </div>

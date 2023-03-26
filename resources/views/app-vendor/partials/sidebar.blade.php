@@ -1,11 +1,12 @@
 <ul>
     <li>
-        <div class="menu-title">COMPANY</div>
+        <div class="menu-title">
+            {{auth()->user()?->getDefaultVendor()?->name}}
+        </div>
 
         <ul>
-
             <li>
-                <a href="#" class="active">
+                <a href="{{route('app-vendor.dashboard')}}" {!! (\Request::route()->getName() == 'app-vendor.dashboard') ? 'class="active"' : null!!}>
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-bar-chart-box-line"></i></span>
                         <span>Analytics</span>
@@ -14,7 +15,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="{{route('app-vendor.programs')}}" {!! (\Request::route()->getName() == 'app-vendor.programs') ? 'class="active"' : null!!}>
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-radar-line"></i></span>
                         <span>Proqramlar</span>

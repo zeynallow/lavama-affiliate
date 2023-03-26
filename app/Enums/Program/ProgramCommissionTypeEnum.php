@@ -4,6 +4,6 @@ namespace App\Enums\Program;
 
 enum ProgramCommissionTypeEnum: string
 {
-    case FIXED = 'fixed';
-    case PERCENT = 'percent';
+    case Fixed = 'fixed';
+    case Percent = 'percent';
 }

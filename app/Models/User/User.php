@@ -31,10 +31,32 @@ class User extends Authenticatable
         return $this->last_name . ' ' . $this->first_name;
     }
 
+    public function getDefaultVendor()
+    {
+        $vendors = $this->vendors;
+
+        if (count($vendors) > 0) {
+            return $this->vendors[0];
+        }
+
+        return null;
+    }
+
+    public function getDefaultVendorId()
+    {
+        $vendors = $this->vendors;
+
+        if (count($vendors) > 0) {
+            return $this->vendors[0]->id;
+        }
+
+        return null;
+    }
 
     public function vendors()
     {
         return $this->belongsToMany(Vendor::class, 'vendor_users');
     }
+
 
 }
