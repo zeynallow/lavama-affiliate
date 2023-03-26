@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Models\Vendor;
+namespace App\Models\Merchant;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VendorUser extends Model
+class Merchant extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
     protected $guarded = [];
+
 }

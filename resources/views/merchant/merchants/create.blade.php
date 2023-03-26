@@ -24,7 +24,7 @@
                         <div class="col-sm-6 col-12">
                             <div class="row">
                                 <div class="col-12">
-                                    <h1 class="mb-0 hp-text-color-black-0"> Create New Vendor </h1>
+                                    <h1 class="mb-0 hp-text-color-black-0"> Create New Merchant </h1>
                                 </div>
 
                                 <div class="col-12">
@@ -47,7 +47,7 @@
 
                                 @include('partials.alert_validation')
 
-                                <form method="POST" action="{{route('app-vendor.vendor.store')}}">
+                                <form method="POST" action="{{route('merchant.merchant.store')}}">
                                     @csrf
 
                                     <div class="mb-24">

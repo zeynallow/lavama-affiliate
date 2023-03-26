@@ -57,7 +57,7 @@
 
                     </div>
 
-                    @include('app-vendor.partials.sidebar')
+                    @include('merchant.partials.sidebar')
 
                 </div>
             </div>
@@ -100,8 +100,8 @@
 
                             <div class="col hp-flex-none w-auto pe-0">
                                 <div class="row align-items-center justify-content-end">
-                                    @include('app-vendor.partials.notification')
-                                    @include('app-vendor.partials.profile')
+                                    @include('merchant.partials.notification')
+                                    @include('merchant.partials.profile')
                                 </div>
                             </div>
                         </div>
@@ -189,7 +189,7 @@
                                 </div>
                             </div>
 
-                            @include('app-vendor.partials.sidebar')
+                            @include('merchant.partials.sidebar')
 
                         </div>
 

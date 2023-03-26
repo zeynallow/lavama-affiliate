@@ -11,10 +11,10 @@ class ProgramPayoutPeriod extends Model
 
     protected $guarded = [];
 
-    public static function getVendorPayoutPeriods($vendorIds)
+    public static function getMerchantPayoutPeriods($merchantIds)
     {
-        $generalPayoutPeriods = ProgramPayoutPeriod::whereNull('owner_vendor_id')->get();
-        $vendorPayoutPeriods = ProgramPayoutPeriod::whereIn('owner_vendor_id', $vendorIds)->get();
-        return $generalPayoutPeriods->merge($vendorPayoutPeriods);
+        $generalPayoutPeriods = ProgramPayoutPeriod::whereNull('owner_merchant_id')->get();
+        $merchantPayoutPeriods = ProgramPayoutPeriod::whereIn('owner_merchant_id', $merchantIds)->get();
+        return $generalPayoutPeriods->merge($merchantPayoutPeriods);
     }
 }

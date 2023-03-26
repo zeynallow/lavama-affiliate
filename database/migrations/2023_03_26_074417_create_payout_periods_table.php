@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('program_payout_periods', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('owner_vendor_id')->index()->unsigned()->nullable();
+            $table->bigInteger('owner_merchant_id')->index()->unsigned()->nullable();
             $table->timestamps();
         });
     }

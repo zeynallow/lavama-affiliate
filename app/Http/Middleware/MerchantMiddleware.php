@@ -2,27 +2,27 @@
 
 namespace App\Http\Middleware;
 
-use App\Enums\User\UserProviderEnum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 use Closure;
 
-class CheckVendorUserMiddleware
+class MerchantMiddleware
 {
 
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
 
-        # Check Vendor User
+        # Check Merchant User
         $user = Auth::user();
 
-        if ($user->provider == UserProviderEnum::Vendor->value) {
+        # Pass
+        if (count($user->merchants) > 0) {
             return $next($request);
         }
 
-        # Abort Forbidden
-        abort(403);
+        # Redirect Create New Merchant
+        return redirect()->route('merchant.merchant.create');
 
     }
 }

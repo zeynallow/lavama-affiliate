@@ -21,7 +21,7 @@
                             </div>
 
                             <div class="col hp-flex-none w-auto">
-                                <a href="{{route('app-vendor.programs.create')}}" class="btn btn-primary w-100">
+                                <a href="{{route('merchant.programs.create')}}" class="btn btn-primary w-100">
                                     <i class="ri-user-add-line remix-icon"></i>
                                     <span>Create New Program</span>
                                 </a>
@@ -104,6 +104,8 @@
                                 </table>
                             </div>
                             {{$programs}}
+                        @else
+                            @include('partials.not_found_record',['title'=>'Programs not found','description'=>'We include 4 clean email templates for you.'])
                         @endif
                         {{--                        <nav>--}}
                         {{--                            <ul class="pagination justify-content-end px-32">--}}

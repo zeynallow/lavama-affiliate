@@ -4,6 +4,6 @@ namespace App\Enums\User;
 
 enum UserProviderEnum: string
 {
-    case Vendor = 'vendor';
+    case Merchant = 'merchant';
     case User = 'user';
 }

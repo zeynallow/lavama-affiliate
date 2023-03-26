@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\Vendor\Vendor;
+use App\Models\Merchant\Merchant;
 
 class User extends Authenticatable
 {
@@ -31,31 +31,31 @@ class User extends Authenticatable
         return $this->last_name . ' ' . $this->first_name;
     }
 
-    public function getDefaultVendor()
+    public function getDefaultMerchant()
     {
-        $vendors = $this->vendors;
+        $merchants = $this->merchants;
 
-        if (count($vendors) > 0) {
-            return $this->vendors[0];
+        if (count($merchants) > 0) {
+            return $this->merchants[0];
         }
 
         return null;
     }
 
-    public function getDefaultVendorId()
+    public function getDefaultMerchantId()
     {
-        $vendors = $this->vendors;
+        $merchants = $this->merchants;
 
-        if (count($vendors) > 0) {
-            return $this->vendors[0]->id;
+        if (count($merchants) > 0) {
+            return $this->merchants[0]->id;
         }
 
         return null;
     }
 
-    public function vendors()
+    public function merchants()
     {
-        return $this->belongsToMany(Vendor::class, 'vendor_users');
+        return $this->belongsToMany(Merchant::class, 'merchant_users');
     }
 
 

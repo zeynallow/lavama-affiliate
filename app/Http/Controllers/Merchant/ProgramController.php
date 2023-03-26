@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\AppVendor;
+namespace App\Http\Controllers\Merchant;
 
 use App\Enums\Program\ProgramCommissionTypeEnum;
 use App\Enums\Program\ProgramStatusEnum;
 use App\Enums\User\UserProviderEnum;
 use App\Http\Controllers\Controller as Controller;
 use App\Models\Program\Program;
-use App\Models\Vendor\Vendor;
-use App\Models\Vendor\VendorUser;
+use App\Models\Merchant\Merchant;
+use App\Models\Merchant\MerchantUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Enum;
@@ -30,12 +30,12 @@ class ProgramController extends Controller
     {
         $programs = Program::owner()->orderBy('id', 'desc')->paginate(10);
 
-        return view('app-vendor.programs.index', compact('programs'));
+        return view('merchant.programs.index', compact('programs'));
     }
 
     public function create()
     {
-        return view('app-vendor.programs.create');
+        return view('merchant.programs.create');
     }
 
     public function store(Request $request)
@@ -69,11 +69,11 @@ class ProgramController extends Controller
         $program->click_commission_type = $request->click_commission_type;
         $program->click_commission_value = $request->click_commission_value;
         $program->owner_user_id = $this->user->id;
-        $program->owner_vendor_id = $this->user->getDefaultVendorId();
+        $program->owner_merchant_id = $this->user->getDefaultMerchantId();
         $program->status = ProgramStatusEnum::Pending;
         $program->save();
 
         # Redirect Dashboard
-        return redirect()->route('app-vendor.programs')->with(['success' => 'Vendor created successfully']);
+        return redirect()->route('merchant.programs')->with(['success' => 'Program created successfully']);
     }
 }

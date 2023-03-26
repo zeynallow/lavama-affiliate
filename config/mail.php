@@ -117,7 +117,7 @@ return [
         'theme' => 'default',
 
         'paths' => [
-            resource_path('views/app-vendor/mail'),
+            resource_path('views/merchant/mail'),
         ],
     ],
 

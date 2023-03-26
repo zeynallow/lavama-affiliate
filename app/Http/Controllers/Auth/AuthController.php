@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Enums\User\UserProviderEnum;
+use App\Helpers\HandlerHelper;
 use App\Http\Controllers\Controller as Controller;
 use App\Models\User\User;
 use Illuminate\Http\Request;
@@ -55,10 +56,10 @@ class AuthController extends Controller
             Auth::login($user);
 
             # Redirect Dashboard
-            return redirect()->route('app-' . $request->provider . '.dashboard');
+            return redirect()->route($request->provider . '.dashboard');
         } catch (\Exception $e) {
             # Error Handler
-            return redirect()->back()->with(['error' => 'Something Went Error']);
+            return redirect()->back()->with(['error' => HandlerHelper::getErrorMessage($e)]);
         }
 
     }
@@ -81,7 +82,7 @@ class AuthController extends Controller
 
         # Redirect Dashboard
         if ($auth) {
-            return redirect()->route('app-' . $request->provider . '.dashboard');
+            return redirect()->route($request->provider . '.dashboard');
         } else {
             return redirect()->back()->with(['error' => 'E-mail və ya şifrə doğru deyil']);
         }

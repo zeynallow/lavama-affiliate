@@ -47,7 +47,7 @@
 
                                 @include('partials.alert_validation')
 
-                                <form method="POST" action="{{route('app-vendor.programs.store')}}">
+                                <form method="POST" action="{{route('merchant.programs.store')}}">
                                     @csrf
 
                                     <div class="mb-24">
@@ -142,7 +142,7 @@
                                     <div class="mb-24">
                                         <label for="payout_period_id" class="form-label">Payout Periods</label>
                                         <select class="form-select" id="payout_period_id" name="payout_period_id">
-                                            @foreach(\App\Models\Program\ProgramPayoutPeriod::getVendorPayoutPeriods(auth()->user()->vendors->pluck('id')) as $payoutPeriod)
+                                            @foreach(\App\Models\Program\ProgramPayoutPeriod::getMerchantPayoutPeriods(auth()->user()->merchants?->pluck('id')) as $payoutPeriod)
                                                 <option
                                                     @if(old('payout_period_id') == $payoutPeriod->id)
                                                         selected

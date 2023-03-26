@@ -1,12 +1,12 @@
 <ul>
     <li>
         <div class="menu-title">
-            {{auth()->user()?->getDefaultVendor()?->name}}
+            {{auth()->user()?->getDefaultMerchant()?->name}}
         </div>
 
         <ul>
             <li>
-                <a href="{{route('app-vendor.dashboard')}}" {!! (\Request::route()->getName() == 'app-vendor.dashboard') ? 'class="active"' : null!!}>
+                <a href="{{route('merchant.dashboard')}}" {!! (\Request::route()->getName() == 'merchant.dashboard') ? 'class="active"' : null!!}>
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-bar-chart-box-line"></i></span>
                         <span>Analytics</span>
@@ -15,7 +15,7 @@
             </li>
 
             <li>
-                <a href="{{route('app-vendor.programs')}}" {!! (\Request::route()->getName() == 'app-vendor.programs') ? 'class="active"' : null!!}>
+                <a href="{{route('merchant.programs')}}" {!! (\Request::route()->getName() == 'merchant.programs') ? 'class="active"' : null!!}>
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-radar-line"></i></span>
                         <span>Proqramlar</span>

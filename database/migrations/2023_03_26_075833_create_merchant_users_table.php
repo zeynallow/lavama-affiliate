@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vendor_users', function (Blueprint $table) {
+        Schema::create('merchant_users', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->index()->unsigned();
-            $table->bigInteger('vendor_id')->index()->unsigned();
+            $table->bigInteger('merchant_id')->index()->unsigned();
         });
     }
 
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vendor_users');
+        Schema::dropIfExists('merchant_users');
     }
 };

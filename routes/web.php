@@ -24,23 +24,23 @@ Route::post('sign-up', [\App\Http\Controllers\Auth\AuthController::class, 'handl
 Route::get('sign-out', [\App\Http\Controllers\Auth\AuthController::class, 'handleSignOut'])->name('auth.handleSignOut');
 
 
-# Vendor
-Route::group(['prefix' => 'vendor', 'middleware' => ['auth', 'check_vendor_user']], function () {
+# Merchant
+Route::group(['prefix' => 'merchant', 'middleware' => ['auth', 'check_merchant_user']], function () {
 
-    # Vendor Create, Getting Started
-    Route::get('create', [\App\Http\Controllers\AppVendor\VendorController::class, 'create'])->name('app-vendor.vendor.create');
-    Route::post('create', [\App\Http\Controllers\AppVendor\VendorController::class, 'store'])->name('app-vendor.vendor.store');
+    # Merchant Create, Getting Started
+    Route::get('create', [\App\Http\Controllers\Merchant\MerchantController::class, 'create'])->name('merchant.merchant.create');
+    Route::post('create', [\App\Http\Controllers\Merchant\MerchantController::class, 'store'])->name('merchant.merchant.store');
 
-    Route::group(['middleware' => ['app_vendor']], function () {
+    Route::group(['middleware' => ['merchant']], function () {
 
         # Dashboard
-        Route::get('dashboard', [\App\Http\Controllers\AppVendor\DashboardController::class, 'index'])->name('app-vendor.dashboard');
+        Route::get('dashboard', [\App\Http\Controllers\Merchant\DashboardController::class, 'index'])->name('merchant.dashboard');
 
         # Programs
-        Route::get('programs', [\App\Http\Controllers\AppVendor\ProgramController::class, 'index'])->name('app-vendor.programs');
+        Route::get('programs', [\App\Http\Controllers\Merchant\ProgramController::class, 'index'])->name('merchant.programs');
 
-        Route::get('programs/create', [\App\Http\Controllers\AppVendor\ProgramController::class, 'create'])->name('app-vendor.programs.create');
-        Route::post('programs/create', [\App\Http\Controllers\AppVendor\ProgramController::class, 'store'])->name('app-vendor.programs.store');
+        Route::get('programs/create', [\App\Http\Controllers\Merchant\ProgramController::class, 'create'])->name('merchant.programs.create');
+        Route::post('programs/create', [\App\Http\Controllers\Merchant\ProgramController::class, 'store'])->name('merchant.programs.store');
 
     });
 

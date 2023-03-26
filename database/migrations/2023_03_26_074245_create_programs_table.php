@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->float('click_commission_value')->nullable();
             $table->string('status');
             $table->bigInteger('owner_user_id')->index()->unsigned();
-            $table->bigInteger('owner_vendor_id')->index()->unsigned();
+            $table->bigInteger('owner_merchant_id')->index()->unsigned();
             $table->timestamps();
         });
     }

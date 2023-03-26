@@ -83,10 +83,10 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" value="vendor" name="provider"
-                                           id="provider_vendor"
+                                    <input class="form-check-input" type="radio" value="merchant" name="provider"
+                                           id="provider_merchant"
                                            autocomplete="off">
-                                    <label class="form-check-label" for="provider_vendor">Vendor</label>
+                                    <label class="form-check-label" for="provider_merchant">Merchant</label>
                                 </div>
                             </div>
                             @if ($errors->has('provider'))

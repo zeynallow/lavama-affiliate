@@ -22,7 +22,7 @@ class Program extends Model
     public function scopeOwner($query)
     {
         $user = auth()->user();
-        $query->whereIn('owner_vendor_id', $user->vendors->pluck('id'))
+        $query->whereIn('owner_merchant_id', $user->merchants->pluck('id'))
             ->where('owner_user_id', $user->id);
     }
 
