@@ -68,6 +68,17 @@
     </button>
 </div>
 
+<!-- Toast -->
+<div class="position-fixed top-0 end-0 p-16" style="z-index: 99">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="toast-title me-auto">Bootstrap</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body"></div>
+    </div>
+</div>
+
 <!-- Plugin -->
 <script src="/app-assets/js/plugin/jquery.min.js"></script>
 <script src="/app-assets/js/plugin/bootstrap.bundle.min.js"></script>
@@ -86,6 +97,19 @@
 
 <!-- Custom -->
 <script src="/assets/js/main.js"></script>
+
+
+@if(Session::has('success'))
+    <script type="text/javascript">
+        showLiveToaster('success', 'Success', '{{ Session::get('success')}}');
+    </script>
+@endif
+
+@if(Session::has('error'))
+    <script type="text/javascript">
+        showLiveToaster('error', 'Error', '{{ Session::get('error')}}');
+    </script>
+@endif
 
 @stack('js')
 

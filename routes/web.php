@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('app-vendor.dashboard');
-});
-
 
 # Authentication
 Route::get('sign-in', [\App\Http\Controllers\Auth\AuthController::class, 'signIn'])->name('auth.signIn');
@@ -29,6 +25,14 @@ Route::get('sign-out', [\App\Http\Controllers\Auth\AuthController::class, 'handl
 
 
 # Vendor
-Route::group(['prefix' => 'vendor', 'middleware' => ['auth']], function () {
-    Route::get('dashboard', [\App\Http\Controllers\AppVendor\DashboardController::class, 'index'])->name('app-vendor.dashboard');
+Route::group(['prefix' => 'vendor', 'middleware' => ['auth', 'check_vendor_user']], function () {
+
+    Route::get('create', [\App\Http\Controllers\AppVendor\VendorController::class, 'create'])->name('app-vendor.vendor.create');
+    Route::post('create', [\App\Http\Controllers\AppVendor\VendorController::class, 'store'])->name('app-vendor.vendor.store');
+
+    Route::group(['middleware' => ['app_vendor']], function () {
+        Route::get('dashboard', [\App\Http\Controllers\AppVendor\DashboardController::class, 'index'])->name('app-vendor.dashboard');
+
+    });
+
 });

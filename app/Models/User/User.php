@@ -3,11 +3,12 @@
 namespace App\Models\User;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Enum\UserProviderEnum;
+use App\Enums\User\UserProviderEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Vendor\Vendor;
 
 class User extends Authenticatable
 {
@@ -28,6 +29,12 @@ class User extends Authenticatable
     public function getFullnameAttribute()
     {
         return $this->last_name . ' ' . $this->first_name;
+    }
+
+
+    public function vendors()
+    {
+        return $this->belongsToMany(Vendor::class, 'vendor_users');
     }
 
 }
