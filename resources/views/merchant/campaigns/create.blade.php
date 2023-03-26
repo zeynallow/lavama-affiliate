@@ -51,7 +51,7 @@
                                     @csrf
 
                                     <div class="mb-24">
-                                        <label for="program_id" class="form-label">Program</label>
+                                        <label for="program_id" class="form-label">Program <span class="text-danger">*</span></label>
                                         <select class="form-select" id="program_id"
                                                 name="program_id">
                                             @foreach($programs as $program)
@@ -65,7 +65,7 @@
                                     </div>
 
                                     <div class="mb-24">
-                                        <label for="name" class="form-label">Name</label>
+                                        <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="name" name="name"
                                                value="{{old('name')}}">
                                     </div>
@@ -79,15 +79,15 @@
                                     </div>
 
                                     <div class="mb-24">
-                                        <label for="description" class="form-label">Description</label>
+                                        <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="description" name="description"
                                                value="{{old('description')}}">
                                     </div>
 
                                     <div class="mb-24">
-                                        <label for="category_ids" class="form-label">Category</label>
-                                        <select class="form-select" id="category_ids" multiple
-                                                name="category_ids">
+                                        <label for="category_ids" class="form-label">Category <span class="text-danger">*</span></label>
+                                        <select class="form-select form-select-multiple" id="category_ids" multiple
+                                                name="category_ids[]">
                                             @foreach($categories as $category)
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach
@@ -108,14 +108,14 @@
 
                                     <div class="row mb-24" id="duration_section">
                                         <div class="col-6">
-                                            <label for="start_datetime" class="form-label">Start Date</label>
+                                            <label for="start_datetime" class="form-label">Start Date <span class="text-danger">*</span></label>
                                             <input type="datetime-local" class="form-control" id="start_datetime"
                                                    value="{{ old('start_datetime') ?? \Carbon\Carbon::now()->format('Y-m-d H:i')}}"
                                                    min="{{\Carbon\Carbon::now()->format('Y-m-d H:i')}}"
                                                    name="start_datetime">
                                         </div>
                                         <div class="col-6">
-                                            <label for="end_datetime" class="form-label">End Date</label>
+                                            <label for="end_datetime" class="form-label">End Date <span class="text-danger">*</span></label>
                                             <input type="datetime-local" class="form-control" id="end_datetime"
                                                    value="{{ old('end_datetime') ?? \Carbon\Carbon::now()->addDay(90)->format('Y-m-d H:i')}}"
                                                    min="{{\Carbon\Carbon::now()->addDay(90)->format('Y-m-d H:i')}}"
@@ -124,7 +124,7 @@
                                     </div>
 
                                     <div class="mb-24">
-                                        <label for="cookie_lifetime" class="form-label">Cookie lifetime</label>
+                                        <label for="cookie_lifetime" class="form-label">Cookie lifetime <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <input type="text" class="form-control" id="cookie_lifetime"
                                                    name="cookie_lifetime"
@@ -137,7 +137,7 @@
                                         <div class="col-6">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox" id="is_target_all"
-                                                       name="is_target_all" value="1">
+                                                       name="is_target_all" value="1" disabled>
                                                 <label class="form-check-label" for="is_target_all">
                                                     <span class="ms-12">Target all products</span>
                                                 </label>
@@ -149,7 +149,7 @@
                                         <div class="col-6">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox" id="for_all_publishers"
-                                                       name="for_all_publishers" value="1">
+                                                       name="for_all_publishers" value="1" disabled>
                                                 <label class="form-check-label" for="for_all_publishers">
                                                     <span class="ms-12">Target all publishers</span>
                                                 </label>
@@ -177,8 +177,10 @@
 
         $("#is_lifetime").click(function () {
             if ($("#is_lifetime").is(':checked')) {
+                $("#duration_section").find("span.text-danger").html('');
                 $("#duration_section :input").prop("disabled", true);
             } else {
+                $("#duration_section").find("span.text-danger").html('*');
                 $("#duration_section :input").prop("disabled", false);
             }
         });

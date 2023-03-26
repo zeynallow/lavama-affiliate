@@ -43,6 +43,8 @@ Route::group(['prefix' => 'merchant', 'middleware' => ['auth', 'check_merchant_u
         Route::post('programs/create', [\App\Http\Controllers\Merchant\ProgramController::class, 'store'])->name('merchant.programs.store');
 
         # Campaign
+        Route::get('campaigns', [\App\Http\Controllers\Merchant\CampaignController::class, 'index'])->name('merchant.campaigns');
+
         Route::get('campaigns/create', [\App\Http\Controllers\Merchant\CampaignController::class, 'create'])->name('merchant.campaigns.create');
         Route::post('campaigns/create', [\App\Http\Controllers\Merchant\CampaignController::class, 'store'])->name('merchant.campaigns.store');
 

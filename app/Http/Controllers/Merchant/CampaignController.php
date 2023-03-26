@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers\Merchant;
 
+use App\Enums\Campaign\CampaignStatusEnum;
 use App\Enums\Program\ProgramCommissionTypeEnum;
 use App\Enums\Program\ProgramStatusEnum;
 use App\Enums\User\UserProviderEnum;
+use App\Helpers\HandlerHelper;
 use App\Http\Controllers\Controller as Controller;
+use App\Models\Campaign\Campaign;
+use App\Models\Campaign\CampaignCategory;
 use App\Models\Campaign\CategoryForCampaign;
 use App\Models\Program\Program;
 use App\Models\Merchant\Merchant;
 use App\Models\Merchant\MerchantUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\Enum;
 
 class CampaignController extends Controller
@@ -29,9 +34,9 @@ class CampaignController extends Controller
 
     public function index()
     {
-//        $programs = Program::owner()->orderBy('id', 'desc')->paginate(10);
-//
-//        return view('merchant.programs.index', compact('programs'));
+        $campaigns = Campaign::owner()->orderBy('id', 'desc')->paginate(10);
+
+        return view('merchant.campaigns.index', compact('campaigns'));
     }
 
     public function create()
@@ -43,40 +48,74 @@ class CampaignController extends Controller
 
     public function store(Request $request)
     {
-//        # Validation
-//        $request->validate([
-//            'name' => 'required',
-//            'description' => 'nullable',
-//            'is_sale_tracking' => 'nullable',
-//            'sale_commission_type' => ['required_with:is_sale_tracking', new Enum(ProgramCommissionTypeEnum::class)],
-//            'sale_commission_value' => 'required_with:is_sale_tracking',
-//            'is_click_tracking' => 'nullable',
-//            'click_commission_type' => ['required_with:is_click_tracking', new Enum(ProgramCommissionTypeEnum::class)],
-//            'click_commission_value' => 'required_with:is_click_tracking',
-//            'payout_period_id' => 'required|exists:program_payout_periods,id'
-//        ]);
-//
-//        if (is_null($request->is_sale_tracking) && is_null($request->is_click_tracking)) {
-//            return redirect()->back()->with(['error' => 'One of the tracking methods must be selected']);
-//        }
-//
-//        # Create
-//        $program = new Program();
-//        $program->name = $request->name;
-//        $program->description = $request->description;
-//        $program->payout_period_id = $request->payout_period_id;
-//        $program->is_sale_tracking = ($request->is_sale_tracking) ? 1 : 0;
-//        $program->sale_commission_type = $request->sale_commission_type;
-//        $program->sale_commission_value = $request->sale_commission_value;
-//        $program->is_click_tracking = ($request->is_click_tracking) ? 1 : 0;
-//        $program->click_commission_type = $request->click_commission_type;
-//        $program->click_commission_value = $request->click_commission_value;
-//        $program->owner_user_id = $this->user->id;
-//        $program->owner_merchant_id = $this->user->getDefaultMerchantId();
-//        $program->status = ProgramStatusEnum::Pending;
-//        $program->save();
-//
-//        # Redirect Dashboard
-//        return redirect()->route('merchant.programs')->with(['success' => 'Program created successfully']);
+        # Validation
+        $request->validate([
+            'name' => 'required',
+            'name_for_publisher' => 'nullable',
+            'description' => 'required',
+            'program_id' => 'required|exists:programs,id,owner_merchant_id,' . $this->user->getDefaultMerchantId(),
+            'category_ids' => 'required',
+            'start_datetime' => 'nullable|date',
+            'end_datetime' => 'nullable|date',
+            'cookie_lifetime' => 'required|integer'
+        ]);
+
+        # Set Name For Publisher (Left blank)
+        if (is_null($request->name_for_publisher)) {
+            $request->name_for_publisher = $request->name;
+        }
+
+        # Check Lifetime Duration
+        if (is_null($request->is_lifetime) && (is_null($request->start_datetime) || is_null($request->end_datetime))) {
+            return redirect()->back()->with(['error' => 'If not lifetime, start & end datetime must be selected']);
+        }
+
+        # DB Begin Transaction
+        DB::beginTransaction();
+
+        try {
+            # Create
+            $campaign = new Campaign();
+            $campaign->name = $request->name;
+            $campaign->name_for_publisher = $request->name_for_publisher;
+            $campaign->description = $request->description;
+            $campaign->program_id = $request->program_id;
+            $campaign->start_datetime = $request->start_datetime;
+            $campaign->end_datetime = $request->end_datetime;
+            $campaign->cover = null; # ..
+            $campaign->is_target_all = 1; # ..
+            $campaign->for_all_publishers = 1; # ..
+            $campaign->cookie_lifetime = $request->cookie_lifetime;
+            $campaign->status = CampaignStatusEnum::Pending;
+            $campaign->owner_user_id = $this->user->id;
+            $campaign->save();
+
+            # Create Campaign Categories
+            $campaignCategory = [];
+            if (is_array($request->category_ids)) {
+                foreach ($request->category_ids as $categoryId) {
+                    $campaignCategory[] = [
+                        'campaign_id' => $campaign->id,
+                        'category_id' => $categoryId
+                    ];
+                }
+            }
+
+            if (count($campaignCategory) > 0) {
+                CampaignCategory::insert($campaignCategory);
+            }
+
+        } catch (\Exception $e) {
+            # DB Rollback Transaction
+            DB::rollBack();
+            return redirect()->back()->with(['error' => HandlerHelper::getErrorMessage($e)]);
+        }
+
+        # DB Commit Transaction
+        DB::commit();
+
+
+        # Redirect Campaigns
+        return redirect()->route('merchant.campaigns')->with(['success' => 'Campaign created successfully']);
     }
 }

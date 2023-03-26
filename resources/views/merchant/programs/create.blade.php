@@ -51,7 +51,7 @@
                                     @csrf
 
                                     <div class="mb-24">
-                                        <label for="name" class="form-label">Name</label>
+                                        <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="name" name="name"
                                                value="{{old('name')}}">
                                     </div>
@@ -81,7 +81,7 @@
                                     <div class="row mb-24" id="sale_commission_section">
                                         <div class="col-6">
                                             <label for="sale_commission_type" class="form-label">Sale commission
-                                                type</label>
+                                                type <span class="text-danger"></span></label>
                                             <select class="form-select" id="sale_commission_type" disabled
                                                     name="sale_commission_type">
                                                 @foreach(\App\Enums\Program\ProgramCommissionTypeEnum::cases() as $commissionType)
@@ -95,7 +95,7 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="sale_commission_value" class="form-label">Sale commission
-                                                value</label>
+                                                value <span class="text-danger"></span></label>
                                             <input type="text" class="form-control" id="sale_commission_value"
                                                    value="{{old('sale_commission_value')}}"
                                                    name="sale_commission_value" disabled>
@@ -118,7 +118,7 @@
                                     <div class="row mb-24" id="click_commission_section">
                                         <div class="col-6">
                                             <label for="click_commission_type" class="form-label">Click commission
-                                                type</label>
+                                                type <span class="text-danger"></span></label>
                                             <select class="form-select" id="click_commission_type" disabled
                                                     name="click_commission_type">
                                                 @foreach(\App\Enums\Program\ProgramCommissionTypeEnum::cases() as $commissionType)
@@ -132,7 +132,7 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="click_commission_value" class="form-label">Click commission
-                                                value</label>
+                                                value <span class="text-danger"></span></label>
                                             <input type="text" class="form-control" id="click_commission_value"
                                                    value="{{old('click_commission_value')}}"
                                                    name="click_commission_value" disabled>
@@ -140,7 +140,7 @@
                                     </div>
 
                                     <div class="mb-24">
-                                        <label for="payout_period_id" class="form-label">Payout Periods</label>
+                                        <label for="payout_period_id" class="form-label">Payout Periods <span class="text-danger">*</span></label>
                                         <select class="form-select" id="payout_period_id" name="payout_period_id">
                                             @foreach(\App\Models\Program\ProgramPayoutPeriod::getMerchantPayoutPeriods(auth()->user()->merchants?->pluck('id')) as $payoutPeriod)
                                                 <option
@@ -173,16 +173,20 @@
 
         $("#is_sale_tracking").click(function () {
             if ($("#is_sale_tracking").is(':checked')) {
+                $("#sale_commission_section").find('span.text-danger').html('*');
                 $("#sale_commission_section :input").prop("disabled", false);
             } else {
+                $("#sale_commission_section").find('span.text-danger').html('');
                 $("#sale_commission_section :input").prop("disabled", true);
             }
         });
 
         $("#is_click_tracking").click(function () {
             if ($("#is_click_tracking").is(':checked')) {
+                $("#click_commission_section").find('span.text-danger').html('*');
                 $("#click_commission_section :input").prop("disabled", false);
             } else {
+                $("#click_commission_section").find('span.text-danger').html('');
                 $("#click_commission_section :input").prop("disabled", true);
             }
         });

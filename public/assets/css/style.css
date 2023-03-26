@@ -14,3 +14,7 @@
     line-height: 16px;
     font-weight: 500;
 }
+
+.form-select.form-select-multiple{
+    padding: 25px 45px 0px 15px;
+}

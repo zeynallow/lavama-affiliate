@@ -73,7 +73,7 @@ class ProgramController extends Controller
         $program->status = ProgramStatusEnum::Pending;
         $program->save();
 
-        # Redirect Dashboard
+        # Redirect Programs
         return redirect()->route('merchant.programs')->with(['success' => 'Program created successfully']);
     }
 }

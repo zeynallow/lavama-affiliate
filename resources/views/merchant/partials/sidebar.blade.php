@@ -18,7 +18,16 @@
                 <a href="{{route('merchant.programs')}}" {!! (\Request::route()->getName() == 'merchant.programs') ? 'class="active"' : null!!}>
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-radar-line"></i></span>
-                        <span>Proqramlar</span>
+                        <span>Programs</span>
+                    </span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{route('merchant.campaigns')}}">
+                    <span>
+                        <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
+                        <span>Campaigns</span>
                     </span>
                 </a>
             </li>
@@ -27,16 +36,7 @@
                 <a href="#">
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
-                        <span>Kampaniyalar</span>
-                    </span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    <span>
-                        <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
-                        <span>Partynorlar</span>
+                        <span>Partners</span>
                     </span>
                     <div class="menu-arrow"></div>
                 </a>
@@ -44,13 +44,13 @@
                 <ul class="submenu-children" data-level="1">
                     <li>
                         <a href="#">
-                            <span>Qoşulma istəkləri</span>
+                            <span>Join requests</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="#">
-                            <span>Partnyorların siyahısı</span>
+                            <span>Partners list</span>
                         </a>
                     </li>
                 </ul>
@@ -60,7 +60,7 @@
                 <a href="#">
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
-                        <span>Maliyyə</span>
+                        <span>Finance</span>
                     </span>
                     <div class="menu-arrow"></div>
                 </a>
@@ -68,13 +68,13 @@
                 <ul class="submenu-children" data-level="1">
                     <li>
                         <a href="#">
-                            <span>Köçürmələr</span>
+                            <span>Transfers</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="#">
-                            <span>Hesab</span>
+                            <span>Account</span>
                         </a>
                     </li>
                 </ul>
@@ -85,7 +85,7 @@
                 <a href="#">
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
-                        <span>Ayarlar</span>
+                        <span>Settings</span>
                     </span>
                     <div class="menu-arrow"></div>
                 </a>
@@ -93,28 +93,28 @@
                 <ul class="submenu-children" data-level="1">
                     <li>
                         <a href="#">
-                            <span>Profil</span>
+                            <span>Profile</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="#">
-                            <span>Şirkət məlumatları</span>
+                            <span>Merchant</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <span>Tariflər</span>
+                            <span>Plans</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <span>Ödəniş və fakturalar</span>
+                            <span>Payment and invoices</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <span>Kömək</span>
+                            <span>FAQ</span>
                         </a>
                     </li>
                 </ul>
@@ -124,7 +124,7 @@
                 <a href="#">
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
-                        <span>İnteqrasiya</span>
+                        <span>For developers</span>
                     </span>
                 </a>
             </li>
