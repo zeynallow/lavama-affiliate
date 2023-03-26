@@ -293,7 +293,7 @@
 
                             <div class="row">
                                 <div class="col-12">
-                                    <img src="/app-assets/img/logo/logo-blue.svg" alt="Yoda">
+                                    <img src="/app-assets/img/logo/logo-blue.svg" alt="lavama">
                                 </div>
 
                                 <div class="mt-32 col-12">

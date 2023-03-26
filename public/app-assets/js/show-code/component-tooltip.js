@@ -29,7 +29,7 @@ const direction = `
 `;
 
 const svg = `
-<div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="Yoda">
+<div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="lavama">
   <img src="..." alt="...">
 </div>
 

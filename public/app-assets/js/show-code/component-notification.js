@@ -2,7 +2,7 @@ const basicNotification = `
 <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
     <div class="toast-header">
         <img class="me-8" src="..." alt="...">
-        <strong class="me-auto">Yoda</strong>
+        <strong class="me-auto">lavama</strong>
         <small>11 mins ago</small>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
@@ -21,7 +21,7 @@ const live = `
     <div data-id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
             <img class="me-8" src="..." alt="...">
-            <strong class="me-auto">Yoda</strong>
+            <strong class="me-auto">lavama</strong>
             <small>11 mins ago</small>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
@@ -39,7 +39,7 @@ const translucent = `
     <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
             <img class="me-8" src="..." alt="...">
-            <strong class="me-auto">Yoda</strong>
+            <strong class="me-auto">lavama</strong>
             <small class="text-muted">11 mins ago</small>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
@@ -62,7 +62,7 @@ const stacking = `
         <div data-id="stacking-1" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img class="me-8" src="..." alt="...">
-                <strong class="me-auto">Yoda</strong>
+                <strong class="me-auto">lavama</strong>
                 <small class="text-muted">just now</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
@@ -75,7 +75,7 @@ const stacking = `
         <div data-id="stacking-2" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img class="me-8" src="..." alt="...">
-                <strong class="me-auto">Yoda</strong>
+                <strong class="me-auto">lavama</strong>
                 <small class="text-muted">2 seconds ago</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>

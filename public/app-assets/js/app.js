@@ -1438,7 +1438,7 @@ if (document.querySelector("#analytics-visiters-chart")) {
     let chart = new ApexCharts(document.querySelector("#analytics-visiters-chart"), optionsAnalyticsVisiters);
     chart.render();
 }
-// Statistics Revenue 1 
+// Statistics Revenue 1
 let optionsStatisticsRevenue1 = {
     series: [
         {
@@ -4666,7 +4666,7 @@ if ($(".hp-authentication-page-register").length) {
                 }
             });
         }
-       
+
         if (buttonItem.attr("data-button-step") === "register-step-2") {
             $(this).addClass("d-none")
             $(".hp-authentication-page-register *[data-button-step='register-step-3']").removeClass("d-none")
@@ -4677,7 +4677,7 @@ if ($(".hp-authentication-page-register").length) {
                 }
             });
         }
-       
+
         if (buttonItem.attr("data-button-step") === "register-step-3") {
             $(this).addClass("d-none")
             $(".hp-authentication-page-register *[data-button-step='register-step-4']").removeClass("d-none")
@@ -5122,7 +5122,7 @@ const iconOnlyButtons = `
 <button class="btn btn-icon-only rounded-circle btn-success">
     <i class="ri-arrow-right-s-line remix-icon"></i>
 </button>
-                
+
 --
 
 <button class="btn btn-icon-only rounded-circle btn-warning">
@@ -5654,15 +5654,15 @@ const basicAvatar = `
   <div class="avatar-item d-flex align-items-center justify-content-center hp-bg-primary-4 hp-text-color-primary-1 rounded" style="width: 64px; height: 64px;">
       <i class="iconly-Curved-User" style="font-size: 46px; letter-spacing: -2px;"></i>
   </div>
-  
+
   <div class="avatar-item d-flex align-items-center justify-content-center avatar-lg hp-bg-primary-4 hp-text-color-primary-1 rounded">
       <i class="iconly-Curved-User"></i>
   </div>
-  
+
   <div class="avatar-item d-flex align-items-center justify-content-center hp-bg-primary-4 hp-text-color-primary-1 rounded">
       <i class="iconly-Curved-User"></i>
   </div>
-  
+
   <div class="avatar-item d-flex align-items-center justify-content-center avatar-sm hp-bg-primary-4 hp-text-color-primary-1 rounded">
       <i class="iconly-Curved-User"></i>
   </div>
@@ -5677,7 +5677,7 @@ const avatarGroup = `
     </div>
 
     <div class="avatar-item d-flex align-items-center justify-content-center hp-bg-danger-4 hp-text-color-danger-1 rounded-circle"> K </div>
-   
+
     <div data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="User">
         <div class="avatar-item d-flex align-items-center justify-content-center rounded-circle">
             <i class="iconly-Curved-User" style="font-size: 22px; letter-spacing: -2px;"></i>
@@ -5697,7 +5697,7 @@ const avatarGroup = `
     </div>
 
     <div class="avatar-item d-flex align-items-center justify-content-center hp-bg-warning-4 hp-text-color-warning-1 rounded-circle"> K </div>
-    
+
     <div data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="User">
         <div class="avatar-item d-flex align-items-center justify-content-center rounded-circle">
             <i class="iconly-Curved-User"></i>
@@ -5723,9 +5723,9 @@ const avatarGroup = `
     <div class="avatar-item d-flex align-items-center justify-content-center avatar-lg hp-bg-primary-4 hp-text-color-primary-1 rounded-circle">
         <img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="User">
     </div>
-   
+
     <div class="avatar-item d-flex align-items-center justify-content-center avatar-lg hp-bg-warning-4 hp-text-color-warning-1 rounded-circle"> K </div>
-   
+
     <div class="avatar-item avatar-lg avatar-item-max-count hp-bg-danger-4 hp-text-color-danger-1">
         <span>+2</span>
 
@@ -6537,11 +6537,11 @@ const basicCarousel = `
     <div class="carousel-item active">
       <img src="..." class="d-block w-100" alt="...">
     </div>
-    
+
     <div class="carousel-item">
       <img src="..." class="d-block w-100" alt="...">
     </div>
-    
+
     <div class="carousel-item">
       <img src="..." class="d-block w-100" alt="...">
     </div>
@@ -6728,21 +6728,21 @@ const touch = `
     <div class="carousel-item active">
       <img src="..." class="d-block w-100" alt="...">
     </div>
-    
+
     <div class="carousel-item">
       <img src="..." class="d-block w-100" alt="...">
     </div>
-    
+
     <div class="carousel-item">
       <img src="..." class="d-block w-100" alt="...">
     </div>
   </div>
-  
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  
+
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
@@ -6760,7 +6760,7 @@ $("pre code").each(function () {
         if ($(this).data("code") === "basic") {
             $(this).text(basicCarousel)
         }
-        
+
         if ($(this).data("code") === "controls") {
             $(this).text(controls)
         }
@@ -6772,11 +6772,11 @@ $("pre code").each(function () {
         if ($(this).data("code") === "captions") {
             $(this).text(captionsCarousel)
         }
-        
+
         if ($(this).data("code") === "crossfade") {
             $(this).text(crossfade)
         }
-        
+
         if ($(this).data("code") === "interval") {
             $(this).text(interval)
         }
@@ -7076,11 +7076,11 @@ const singleButton = `
   <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
-  
+
   <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
-  
+
   <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
@@ -7088,7 +7088,7 @@ const singleButton = `
   <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
-  
+
   <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
@@ -7110,7 +7110,7 @@ const splitButton = `
   <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  
+
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="javascript:;">Action</a></li>
     <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
@@ -7443,27 +7443,27 @@ $("pre code").each(function () {
     if ($(this).data("code") === "dropup") {
       $(this).text(dropup)
     }
-    
+
     if ($(this).data("code") === "dropright") {
       $(this).text(dropright)
     }
-    
+
     if ($(this).data("code") === "dropleft") {
       $(this).text(dropleft)
     }
-    
+
     if ($(this).data("code") === "responsive") {
       $(this).text(responsiveDropdown)
     }
-    
+
     if ($(this).data("code") === "alignment") {
       $(this).text(alignment)
     }
-    
+
     if ($(this).data("code") === "dropdown-options") {
       $(this).text(dropdownOptions)
     }
-    
+
     if ($(this).data("code") === "auto-close") {
       $(this).text(autoClose)
     }
@@ -8198,7 +8198,7 @@ const customContent = `
     <p class="mb-1">Some placeholder content in a paragraph.</p>
     <small>And some small print.</small>
   </a>
-  
+
   <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
@@ -8207,7 +8207,7 @@ const customContent = `
     <p class="mb-1">Some placeholder content in a paragraph.</p>
     <small class="text-muted">And some muted small print.</small>
   </a>
-  
+
   <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
@@ -8253,22 +8253,22 @@ const checkboxesAndRadios = `
     <input class="form-check-input me-1" type="checkbox" value="">
     First checkbox
   </label>
-  
+
   <label class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" value="">
     Second checkbox
   </label>
-  
+
   <label class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" value="">
     Third checkbox
   </label>
-  
+
   <label class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" value="">
     Fourth checkbox
   </label>
-  
+
   <label class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" value="">
     Fifth checkbox
@@ -8388,13 +8388,13 @@ const supportedContent = `
 const textMenu = `
 <nav class="navbar navbar-light hp-bg-black-10 rounded">
   <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:;">Yoda</a>
+    <a class="navbar-brand" href="javascript:;">lavama</a>
   </div>
 </nav>
 
 <nav class="navbar navbar-light hp-bg-black-10 rounded">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Yoda</span>
+    <span class="navbar-brand mb-0 h1">lavama</span>
   </div>
 </nav>
 
@@ -9436,7 +9436,7 @@ const basicNotification = `
 <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
     <div class="toast-header">
         <img class="me-8" src="..." alt="...">
-        <strong class="me-auto">Yoda</strong>
+        <strong class="me-auto">lavama</strong>
         <small>11 mins ago</small>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
@@ -9455,7 +9455,7 @@ const live = `
     <div data-id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
             <img class="me-8" src="..." alt="...">
-            <strong class="me-auto">Yoda</strong>
+            <strong class="me-auto">lavama</strong>
             <small>11 mins ago</small>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
@@ -9473,7 +9473,7 @@ const translucent = `
     <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
             <img class="me-8" src="..." alt="...">
-            <strong class="me-auto">Yoda</strong>
+            <strong class="me-auto">lavama</strong>
             <small class="text-muted">11 mins ago</small>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
@@ -9496,7 +9496,7 @@ const stacking = `
         <div data-id="stacking-1" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img class="me-8" src="..." alt="...">
-                <strong class="me-auto">Yoda</strong>
+                <strong class="me-auto">lavama</strong>
                 <small class="text-muted">just now</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
@@ -9509,7 +9509,7 @@ const stacking = `
         <div data-id="stacking-2" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img class="me-8" src="..." alt="...">
-                <strong class="me-auto">Yoda</strong>
+                <strong class="me-auto">lavama</strong>
                 <small class="text-muted">2 seconds ago</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
@@ -10214,7 +10214,7 @@ $("pre code").each(function () {
         if ($(this).data("code") === "size") {
             $(this).text(size)
         }
-        
+
         if ($(this).data("code") === "button-spinner") {
             $(this).text(buttonSpinner)
         }
@@ -10711,7 +10711,7 @@ const direction = `
 `;
 
 const svg = `
-<div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="Yoda">
+<div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="lavama">
   <img src="..." alt="...">
 </div>
 

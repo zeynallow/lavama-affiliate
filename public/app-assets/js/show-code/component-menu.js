@@ -57,13 +57,13 @@ const supportedContent = `
 const textMenu = `
 <nav class="navbar navbar-light hp-bg-black-10 rounded">
   <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:;">Yoda</a>
+    <a class="navbar-brand" href="javascript:;">lavama</a>
   </div>
 </nav>
 
 <nav class="navbar navbar-light hp-bg-black-10 rounded">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Yoda</span>
+    <span class="navbar-brand mb-0 h1">lavama</span>
   </div>
 </nav>
 
