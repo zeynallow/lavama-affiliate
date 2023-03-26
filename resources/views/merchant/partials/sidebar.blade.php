@@ -27,6 +27,15 @@
                 <a href="#">
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
+                        <span>Kampaniyalar</span>
+                    </span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span>
+                        <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
                         <span>Partynorlar</span>
                     </span>
                     <div class="menu-arrow"></div>
@@ -71,14 +80,6 @@
                 </ul>
             </li>
 
-            <li>
-                <a href="#">
-                    <span>
-                        <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
-                        <span>Kampaniyalar</span>
-                    </span>
-                </a>
-            </li>
 
             <li>
                 <a href="#">

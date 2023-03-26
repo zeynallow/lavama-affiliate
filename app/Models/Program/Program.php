@@ -26,4 +26,54 @@ class Program extends Model
             ->where('owner_user_id', $user->id);
     }
 
+    public function scopeActivated($query)
+    {
+        $query->where('status', ProgramStatusEnum::Activated);
+    }
+
+    public function scopePending($query)
+    {
+        $query->where('status', ProgramStatusEnum::Pending);
+    }
+
+    public function scopeDeactivated($query)
+    {
+        $query->where('status', ProgramStatusEnum::Deactivated);
+    }
+
+    public function payout_period()
+    {
+        return $this->belongsTo('App\Models\Program\ProgramPayoutPeriod', 'payout_period_id');
+    }
+
+    public function getPresenterTitleAttribute()
+    {
+        $title = $this->name;
+
+        if ($this->is_sale_tracking) {
+            $title .= ' | Sale:';
+            if ($this->sale_commission_type == ProgramCommissionTypeEnum::Percent) {
+                $title .= $this->sale_commission_value . ' %';
+            } else {
+                $title .= $this->sale_commission_value . ' [' . $this->sale_commission_type->value . ']';
+            }
+        }
+
+        if ($this->is_click_tracking) {
+            $title .= ' | Click:';
+            if ($this->click_commission_type == ProgramCommissionTypeEnum::Percent) {
+                $title .= $this->click_commission_value . ' %';
+            } else {
+                $title .= $this->click_commission_value . ' [' . $this->click_commission_type->value . ']';
+            }
+        }
+
+        if ($this->payout_period_id) {
+            $title .= ' | Payout:' . $this->payout_period->name;
+        }
+
+        return $title;
+
+    }
+
 }
