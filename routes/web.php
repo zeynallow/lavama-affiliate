@@ -15,39 +15,50 @@ use Illuminate\Support\Facades\Route;
 
 
 # Authentication
-Route::get('sign-in', [\App\Http\Controllers\Auth\AuthController::class, 'signIn'])->name('auth.signIn');
-Route::post('sign-in', [\App\Http\Controllers\Auth\AuthController::class, 'handleSignIn'])->name('auth.handleSignIn');
+Route::get('sign-in', 'Auth\AuthController@signIn')->name('auth.signIn');
+Route::post('sign-in', 'Auth\AuthController@handleSignIn')->name('auth.handleSignIn');
 
-Route::get('sign-up', [\App\Http\Controllers\Auth\AuthController::class, 'signUp'])->name('auth.signUp');
-Route::post('sign-up', [\App\Http\Controllers\Auth\AuthController::class, 'handleSignUp'])->name('auth.handleSignUp');
+Route::get('sign-up', 'Auth\AuthController@signUp')->name('auth.signUp');
+Route::post('sign-up', 'Auth\AuthController@handleSignUp')->name('auth.handleSignUp');
 
-Route::get('sign-out', [\App\Http\Controllers\Auth\AuthController::class, 'handleSignOut'])->name('auth.handleSignOut');
+Route::get('sign-out', 'Auth\AuthController@handleSignOut')->name('auth.handleSignOut');
 
 
 # Merchant
-Route::group(['prefix' => 'merchant', 'middleware' => ['auth', 'check_merchant_user']], function () {
+Route::group(['prefix' => 'merchant', 'namespace' => 'App\Http\Controllers\Merchant', 'middleware' => ['auth', 'merchant_user']], function () {
 
     # Merchant Create, Getting Started
-    Route::get('create', [\App\Http\Controllers\Merchant\MerchantController::class, 'create'])->name('merchant.merchant.create');
-    Route::post('create', [\App\Http\Controllers\Merchant\MerchantController::class, 'store'])->name('merchant.merchant.store');
+    Route::get('create', 'MerchantController@create')->name('merchant.merchant.create');
+    Route::post('create', 'MerchantController@store')->name('merchant.merchant.store');
 
     Route::group(['middleware' => ['merchant']], function () {
 
         # Dashboard
-        Route::get('dashboard', [\App\Http\Controllers\Merchant\DashboardController::class, 'index'])->name('merchant.dashboard');
+        Route::get('dashboard', 'DashboardController@index')->name('merchant.dashboard');
 
         # Programs
-        Route::get('programs', [\App\Http\Controllers\Merchant\ProgramController::class, 'index'])->name('merchant.programs');
+        Route::get('programs', 'ProgramController@index')->name('merchant.programs');
 
-        Route::get('programs/create', [\App\Http\Controllers\Merchant\ProgramController::class, 'create'])->name('merchant.programs.create');
-        Route::post('programs/create', [\App\Http\Controllers\Merchant\ProgramController::class, 'store'])->name('merchant.programs.store');
+        Route::get('programs/create', 'ProgramController@create')->name('merchant.programs.create');
+        Route::post('programs/create', 'ProgramController@store')->name('merchant.programs.store');
 
         # Campaign
-        Route::get('campaigns', [\App\Http\Controllers\Merchant\CampaignController::class, 'index'])->name('merchant.campaigns');
+        Route::get('campaigns', 'CampaignController@index')->name('merchant.campaigns');
 
-        Route::get('campaigns/create', [\App\Http\Controllers\Merchant\CampaignController::class, 'create'])->name('merchant.campaigns.create');
-        Route::post('campaigns/create', [\App\Http\Controllers\Merchant\CampaignController::class, 'store'])->name('merchant.campaigns.store');
+        Route::get('campaigns/create', 'CampaignController@create')->name('merchant.campaigns.create');
+        Route::post('campaigns/create', 'CampaignController@store')->name('merchant.campaigns.store');
 
     });
+
+});
+
+# Publisher
+Route::group(['prefix' => 'publisher', 'namespace' => 'App\Http\Controllers\Publisher', 'middleware' => ['auth', 'publisher_user']], function () {
+
+    # Dashboard
+    Route::get('dashboard', 'DashboardController@index')->name('publisher.dashboard');
+
+    # Campaign
+    Route::get('campaigns', 'CampaignController@index')->name('publisher.campaigns');
 
 });

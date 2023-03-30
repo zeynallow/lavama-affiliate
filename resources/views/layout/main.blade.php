@@ -28,7 +28,7 @@
 
                     </div>
 
-                    @include('merchant.partials.sidebar')
+                    @includeIf(auth()->user()->provider . '.partials.sidebar')
 
                 </div>
             </div>

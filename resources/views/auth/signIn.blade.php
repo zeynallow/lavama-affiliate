@@ -53,11 +53,11 @@
                         <div class="row mb-16">
                             <div class="col-6">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" value="user" name="provider"
-                                           id="provider_user"
+                                    <input class="form-check-input" type="radio" value="publisher" name="provider"
+                                           id="provider_publisher"
                                            autocomplete="off"
                                            checked>
-                                    <label class="form-check-label" for="provider_user">User</label>
+                                    <label class="form-check-label" for="provider_publisher">Publisher</label>
                                 </div>
                             </div>
                             <div class="col-6">
