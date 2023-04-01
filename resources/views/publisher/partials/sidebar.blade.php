@@ -23,6 +23,14 @@
                 </a>
             </li>
 
+            <li>
+                <a href="{{route('publisher.merchants')}}">
+                    <span>
+                        <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
+                        <span>Merchants</span>
+                    </span>
+                </a>
+            </li>
 
             <li>
                 <a href="#">

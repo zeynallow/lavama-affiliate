@@ -15,13 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 
 # Authentication
-Route::get('sign-in', 'Auth\AuthController@signIn')->name('auth.signIn');
-Route::post('sign-in', 'Auth\AuthController@handleSignIn')->name('auth.handleSignIn');
+Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers\Auth'], function () {
+    Route::get('sign-in', 'AuthController@signIn')->name('auth.signIn');
+    Route::post('sign-in', 'AuthController@handleSignIn')->name('auth.handleSignIn');
 
-Route::get('sign-up', 'Auth\AuthController@signUp')->name('auth.signUp');
-Route::post('sign-up', 'Auth\AuthController@handleSignUp')->name('auth.handleSignUp');
+    Route::get('sign-up', 'AuthController@signUp')->name('auth.signUp');
+    Route::post('sign-up', 'AuthController@handleSignUp')->name('auth.handleSignUp');
 
-Route::get('sign-out', 'Auth\AuthController@handleSignOut')->name('auth.handleSignOut');
+    Route::get('sign-out', 'AuthController@handleSignOut')->name('auth.handleSignOut');
+});
 
 
 # Merchant
@@ -60,5 +62,9 @@ Route::group(['prefix' => 'publisher', 'namespace' => 'App\Http\Controllers\Publ
 
     # Campaign
     Route::get('campaigns', 'CampaignController@index')->name('publisher.campaigns');
+
+    # Merchant
+    Route::get('merchants', 'MerchantController@index')->name('publisher.merchants');
+
 
 });
