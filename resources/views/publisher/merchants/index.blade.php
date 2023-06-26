@@ -46,7 +46,24 @@
                                             <td>{{$merchant->name}}</td>
                                             <td>{{$merchant->description}}</td>
                                             <td>
-                                                <a href="" class="btn btn-success">Join Request</a>
+                                                @php
+                                                    $partner = $merchant->ownerPartner;
+                                                @endphp
+                                                @if(is_null($partner))
+                                                    <form method="POST"
+                                                          action="{{route('publisher.merchants.handleJoinRequest')}}">
+                                                        @csrf
+                                                        <input type="hidden" name="merchant_id"
+                                                               value="{{$merchant->id}}">
+                                                        <button type="submit" class="btn btn-success">Join Request
+                                                        </button>
+                                                    </form>
+                                                @else
+                                                    <div
+                                                        class="badge bg-{{$partner->status->color()}}-4 hp-bg-dark-{{$partner->status->color()}} text-{{$partner->status->color()}} border-{{$partner->status->color()}}">
+                                                        {{$partner->status}}
+                                                    </div>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

@@ -11,4 +11,16 @@ class Merchant extends Model
 
     protected $guarded = [];
 
+    public function partner()
+    {
+        return $this->hasMany('App\Models\Merchant\MerchantPartner', 'merchant_id');
+    }
+
+    public function ownerPartner()
+    {
+        return $this->hasOne('App\Models\Merchant\MerchantPartner', 'merchant_id')
+            ->where('user_id', auth()->user()->id);
+    }
+
+
 }

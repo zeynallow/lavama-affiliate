@@ -71,8 +71,8 @@
 
                             <div class="col hp-flex-none w-auto pe-0">
                                 <div class="row align-items-center justify-content-end">
-                                    @include('merchant.partials.notification')
-                                    @include('merchant.partials.profile')
+                                    @includeIf(auth()->user()->provider . '.partials.notification')
+                                    @includeIf(auth()->user()->provider . '.partials.profile')
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                                 </div>
                             </div>
 
-                            @include('merchant.partials.sidebar')
+                            @includeIf(auth()->user()->provider . '.partials.sidebar')
 
                         </div>
 

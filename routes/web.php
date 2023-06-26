@@ -65,6 +65,8 @@ Route::group(['prefix' => 'publisher', 'namespace' => 'App\Http\Controllers\Publ
 
     # Merchant
     Route::get('merchants', 'MerchantController@index')->name('publisher.merchants');
+    Route::post('merchants/join-request', 'MerchantController@handleJoinRequest')->name('publisher.merchants.handleJoinRequest');
+
 
 
 });
