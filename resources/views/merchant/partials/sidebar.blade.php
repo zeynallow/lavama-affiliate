@@ -43,13 +43,13 @@
 
                 <ul class="submenu-children" data-level="1">
                     <li>
-                        <a href="#">
+                        <a href="{{route('merchant.partners.joinRequests')}}">
                             <span>Join requests</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="{{route('merchant.partners')}}">
                             <span>Partners list</span>
                         </a>
                     </li>

@@ -50,6 +50,11 @@ Route::group(['prefix' => 'merchant', 'namespace' => 'App\Http\Controllers\Merch
         Route::get('campaigns/create', 'CampaignController@create')->name('merchant.campaigns.create');
         Route::post('campaigns/create', 'CampaignController@store')->name('merchant.campaigns.store');
 
+        # Partner
+        Route::get('partners', 'PartnerController@index')->name('merchant.partners');
+        Route::get('partners/join-requests', 'PartnerController@joinRequests')->name('merchant.partners.joinRequests');
+        Route::post('partners/join-requests', 'PartnerController@handleJoinRequests')->name('merchant.partners.handleJoinRequests');
+
     });
 
 });
@@ -66,7 +71,6 @@ Route::group(['prefix' => 'publisher', 'namespace' => 'App\Http\Controllers\Publ
     # Merchant
     Route::get('merchants', 'MerchantController@index')->name('publisher.merchants');
     Route::post('merchants/join-request', 'MerchantController@handleJoinRequest')->name('publisher.merchants.handleJoinRequest');
-
 
 
 });
