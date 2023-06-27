@@ -3,6 +3,7 @@
 namespace App\Models\User;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\Merchant\MerchantPartnerStatusEnum;
 use App\Enums\User\UserProviderEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -56,6 +57,12 @@ class User extends Authenticatable
     public function merchants()
     {
         return $this->belongsToMany(Merchant::class, 'merchant_users');
+    }
+
+    public function joined_merchants()
+    {
+        return $this->belongsToMany(Merchant::class, 'merchant_partners')
+            ->where('status', MerchantPartnerStatusEnum::Accepted);
     }
 
 

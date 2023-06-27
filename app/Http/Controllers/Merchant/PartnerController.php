@@ -51,7 +51,8 @@ class PartnerController extends Controller
 
         MerchantPartner::where('id', $request->request_id)->merchantOwner()->pending()
             ->update([
-                'status' => $request->action
+                'status' => $request->action,
+                'accepted_at' => \Carbon\Carbon::now()
             ]);
 
         return redirect()->back()->with(['success' => 'Successfully']);

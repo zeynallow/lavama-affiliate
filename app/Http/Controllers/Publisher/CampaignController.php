@@ -34,7 +34,7 @@ class CampaignController extends Controller
 
     public function index()
     {
-        $campaigns = Campaign::orderBy('id', 'desc')->paginate(10); #Owner Required
+        $campaigns = Campaign::joinedPartner()->activated()->orderBy('id', 'desc')->paginate(10); #Owner Required
 
         return view('publisher.campaigns.index', compact('campaigns'));
     }

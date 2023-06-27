@@ -30,19 +30,26 @@ class Campaign extends Model
             ->where('programs.owner_user_id', $user->id);
     }
 
+    public function scopeJoinedPartner($query){
+        $user = auth()->user();
+        $query->select('campaigns.*')
+            ->leftJoin('programs', 'programs.id', 'campaigns.program_id')
+            ->whereIn('programs.owner_merchant_id', $user->joined_merchants->pluck('id'));
+    }
+
     public function scopeActivated($query)
     {
-        $query->where('status', CampaignStatusEnum::Activated);
+        $query->where('campaigns.status', CampaignStatusEnum::Activated);
     }
 
     public function scopePending($query)
     {
-        $query->where('status', CampaignStatusEnum::Pending);
+        $query->where('campaigns.status', CampaignStatusEnum::Pending);
     }
 
     public function scopeDeactivated($query)
     {
-        $query->where('status', CampaignStatusEnum::Deactivated);
+        $query->where('campaigns.status', CampaignStatusEnum::Deactivated);
     }
 
     public function getDurationAttribute()
