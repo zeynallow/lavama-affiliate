@@ -14,7 +14,6 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   border-right: 1px solid #dfe6e9;
-  min-height: 930px;
 }
 .hp-profile-menu-header .badge {
   bottom: -16px;

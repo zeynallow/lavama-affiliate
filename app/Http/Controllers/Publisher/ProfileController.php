@@ -10,15 +10,15 @@ use Illuminate\Support\Facades\Hash;
 class ProfileController extends Controller
 {
 
+    public function createPartner()
+    {
+        return view('publisher.profile.create_partner');
+    }
+
     public function index()
     {
         $user = auth()->user();
-        return view('publisher.settings.profile', compact('user'));
-    }
-
-    public function createPartner()
-    {
-        return view('publisher.settings.create_partner');
+        return view('publisher.profile.index', compact('user'));
     }
 
     public function handleUpdateProfile(Request $request)
@@ -44,28 +44,11 @@ class ProfileController extends Controller
         return redirect()->back()->with(['success' => 'User updated successfully']);
     }
 
-    public function handleUpdatePassword(Request $request)
+    public function partner()
     {
-        # Validation
-        $request->validate([
-            'old_password' => 'required',
-            'password' => 'required|confirmed',
-        ]);
-
         $user = auth()->user();
-
-        $checkOldPassword = Hash::check($request->old_password, $user->password);
-
-        if ($checkOldPassword) {
-
-            $user->password = bcrypt($request->password);
-            $user->save();
-
-            return redirect()->back()->with(['success' => 'User password updated successfully']);
-        } else {
-            return redirect()->back()->with(['error' => 'Old password is wrong']);
-        }
-
+        $partner = $user->partner;
+        return view('publisher.profile.partner', compact('user', 'partner'));
     }
 
     public function handleCreatePartner(Request $request)
@@ -116,5 +99,41 @@ class ProfileController extends Controller
 
         # Redirect Dashboard
         return redirect()->back()->with(['success' => 'Partner updated successfully']);
+    }
+
+    public function security()
+    {
+        $user = auth()->user();
+        return view('publisher.profile.security', compact('user'));
+    }
+
+    public function handleUpdatePassword(Request $request)
+    {
+        # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $user = auth()->user();
+
+        $checkOldPassword = Hash::check($request->old_password, $user->password);
+
+        if ($checkOldPassword) {
+
+            $user->password = bcrypt($request->password);
+            $user->save();
+
+            return redirect()->back()->with(['success' => 'User password updated successfully']);
+        } else {
+            return redirect()->back()->with(['error' => 'Old password is wrong']);
+        }
+
+    }
+
+    public function notification()
+    {
+        $user = auth()->user();
+        return view('publisher.profile.notification', compact('user'));
     }
 }

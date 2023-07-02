@@ -47,7 +47,7 @@
 
                                 @include('partials.alert_validation')
 
-                                <form method="POST" action="{{route('merchant.settings.merchantUpdate')}}">
+                                <form method="POST" action="{{route('merchant.merchants.update')}}">
                                     @csrf
 
                                     <div class="mb-24">

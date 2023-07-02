@@ -12,7 +12,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return view('merchant.settings.profile', compact('user'));
+        return view('merchant.profile.index', compact('user'));
     }
 
     public function handleUpdateProfile(Request $request)
@@ -60,6 +60,18 @@ class ProfileController extends Controller
             return redirect()->back()->with(['error' => 'Old password is wrong']);
         }
 
+    }
+
+    public function security()
+    {
+        $user = auth()->user();
+        return view('merchant.profile.security', compact('user'));
+    }
+
+    public function notification()
+    {
+        $user = auth()->user();
+        return view('merchant.profile.notification', compact('user'));
     }
 
 

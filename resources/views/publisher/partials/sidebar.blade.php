@@ -58,31 +58,13 @@
 
 
             <li>
-                <a href="#">
+                <a href="{{route('publisher.profile.index')}}">
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
-                        <span>Settings</span>
+                        <span>Profile</span>
                     </span>
-                    <div class="menu-arrow"></div>
                 </a>
 
-                <ul class="submenu-children" data-level="1">
-                    <li>
-                        <a href="{{route('publisher.settings.profile')}}">
-                            <span>Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Payment and invoices</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>FAQ</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
 
         </ul>

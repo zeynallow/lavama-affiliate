@@ -92,13 +92,13 @@
 
                 <ul class="submenu-children" data-level="1">
                     <li>
-                        <a href="{{route('merchant.settings.profile')}}">
+                        <a href="{{route('merchant.profile.index')}}">
                             <span>Profile</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{route('merchant.settings.merchant')}}">
+                        <a href="{{route('merchant.merchants.edit')}}">
                             <span>Merchant</span>
                         </a>
                     </li>

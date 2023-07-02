@@ -56,18 +56,22 @@ Route::group(['prefix' => 'merchant', 'namespace' => 'App\Http\Controllers\Merch
         Route::post('partners/join-requests', 'PartnerController@handleJoinRequests')->name('merchant.partners.handleJoinRequests');
 
         # Settings
-        Route::group(['prefix' => 'settings'], function () {
+        Route::group(['prefix' => 'profile'], function () {
 
             # Profile
-            Route::get('profile', 'ProfileController@index')->name('merchant.settings.profile');
-            Route::post('profile/update-profile', 'ProfileController@handleUpdateProfile')->name('merchant.settings.handleUpdateProfile');
-            Route::post('profile/update-password', 'ProfileController@handleUpdatePassword')->name('merchant.settings.handleUpdatePassword');
+            Route::get('/', 'ProfileController@index')->name('merchant.profile.index');
+            Route::post('profile/update-profile', 'ProfileController@handleUpdateProfile')->name('merchant.profile.handleUpdateProfile');
 
-            # Merchant Edit
-            Route::get('merchants/edit', 'MerchantController@edit')->name('merchant.settings.merchant');
-            Route::post('merchants/edit', 'MerchantController@update')->name('merchant.settings.merchantUpdate');
+            Route::get('security', 'ProfileController@security')->name('merchant.profile.security');
+            Route::post('security/update-password', 'ProfileController@handleUpdatePassword')->name('merchant.profile.handleUpdatePassword');
+
+            Route::get('notification', 'ProfileController@notification')->name('merchant.profile.notification');
 
         });
+
+        # Merchant Edit
+        Route::get('merchants/edit', 'MerchantController@edit')->name('merchant.merchants.edit');
+        Route::post('merchants/edit', 'MerchantController@update')->name('merchant.merchants.update');
 
     });
 
@@ -76,8 +80,8 @@ Route::group(['prefix' => 'merchant', 'namespace' => 'App\Http\Controllers\Merch
 # Publisher
 Route::group(['prefix' => 'publisher', 'namespace' => 'App\Http\Controllers\Publisher', 'middleware' => ['auth', 'publisher_user']], function () {
 
-    Route::get('profile/create-partner', 'ProfileController@createPartner')->name('publisher.settings.createPartner');
-    Route::post('profile/create-partner', 'ProfileController@handleCreatePartner')->name('publisher.settings.handleCreatePartner');
+    Route::get('profile/create-partner', 'ProfileController@createPartner')->name('publisher.profile.createPartner');
+    Route::post('profile/create-partner', 'ProfileController@handleCreatePartner')->name('publisher.profile.handleCreatePartner');
 
     Route::group(['middleware' => ['partner']], function () {
         # Dashboard
@@ -91,13 +95,19 @@ Route::group(['prefix' => 'publisher', 'namespace' => 'App\Http\Controllers\Publ
         Route::post('merchants/join-request', 'MerchantController@handleJoinRequest')->name('publisher.merchants.handleJoinRequest');
 
         # Settings
-        Route::group(['prefix' => 'settings'], function () {
+        Route::group(['prefix' => 'profile'], function () {
 
             # Profile
-            Route::get('profile', 'ProfileController@index')->name('publisher.settings.profile');
-            Route::post('profile/update-profile', 'ProfileController@handleUpdateProfile')->name('publisher.settings.handleUpdateProfile');
-            Route::post('profile/update-partner', 'ProfileController@handleUpdatePartner')->name('publisher.settings.handleUpdatePartner');
-            Route::post('profile/update-password', 'ProfileController@handleUpdatePassword')->name('publisher.settings.handleUpdatePassword');
+            Route::get('/', 'ProfileController@index')->name('publisher.profile.index');
+            Route::post('profile/update-profile', 'ProfileController@handleUpdateProfile')->name('publisher.profile.handleUpdateProfile');
+
+            Route::get('partner', 'ProfileController@partner')->name('publisher.profile.partner');
+            Route::post('partner/update-partner', 'ProfileController@handleUpdatePartner')->name('publisher.profile.handleUpdatePartner');
+
+            Route::get('security', 'ProfileController@security')->name('publisher.profile.security');
+            Route::post('security/update-password', 'ProfileController@handleUpdatePassword')->name('publisher.profile.handleUpdatePassword');
+
+            Route::get('notification', 'ProfileController@notification')->name('publisher.profile.notification');
 
         });
     });
