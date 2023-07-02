@@ -24,7 +24,7 @@
                         <div class="col-sm-6 col-12">
                             <div class="row">
                                 <div class="col-12">
-                                    <h1 class="mb-0 hp-text-color-black-0"> Create New Merchant </h1>
+                                    <h1 class="mb-0 hp-text-color-black-0">Merchant</h1>
                                 </div>
 
                                 <div class="col-12">
@@ -47,50 +47,58 @@
 
                                 @include('partials.alert_validation')
 
-                                <form method="POST" action="{{route('merchant.merchants.store')}}">
+                                <form method="POST" action="{{route('merchant.settings.merchantUpdate')}}">
                                     @csrf
 
                                     <div class="mb-24">
                                         <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="name" name="name">
+                                        <input type="text" class="form-control" id="name" name="name"
+                                               value="{{$merchant->name}}">
                                     </div>
 
                                     <div class="mb-24">
                                         <label for="description" class="form-label">Description</label>
-                                        <input type="text" class="form-control" id="description" name="description">
+                                        <input type="text" class="form-control" id="description" name="description"
+                                               value="{{$merchant->description}}">
                                     </div>
 
                                     <div class="mb-24">
                                         <label for="email" class="form-label">E-mail</label>
-                                        <input type="email" class="form-control" id="email" name="email">
+                                        <input type="email" class="form-control" id="email" name="email"
+                                               value="{{$merchant->email}}">
                                     </div>
 
                                     <div class="mb-24">
                                         <label for="website" class="form-label">Website URL</label>
-                                        <input type="text" class="form-control" id="website" name="website">
+                                        <input type="text" class="form-control" id="website" name="website"
+                                               value="{{$merchant->website}}">
                                     </div>
 
                                     <div class="mb-24">
                                         <label for="facebook" class="form-label">Facebook URL</label>
-                                        <input type="text" class="form-control" id="facebook" name="facebook">
+                                        <input type="text" class="form-control" id="facebook" name="facebook"
+                                               value="{{$merchant->facebook}}">
                                     </div>
 
                                     <div class="mb-24">
                                         <label for="instagram" class="form-label">Instagram URL</label>
-                                        <input type="text" class="form-control" id="instagram" name="instagram">
+                                        <input type="text" class="form-control" id="instagram" name="instagram"
+                                               value="{{$merchant->instagram}}">
                                     </div>
 
                                     <div class="mb-24">
                                         <label for="youtube" class="form-label">Youtube URL</label>
-                                        <input type="text" class="form-control" id="youtube" name="youtube">
+                                        <input type="text" class="form-control" id="youtube" name="youtube"
+                                               value="{{$merchant->youtube}}">
                                     </div>
 
                                     <div class="mb-24">
                                         <label for="linkedin" class="form-label">Linkedin URL</label>
-                                        <input type="text" class="form-control" id="linkedin" name="linkedin">
+                                        <input type="text" class="form-control" id="linkedin" name="linkedin"
+                                               value="{{$merchant->linkedin}}">
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">Create</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
 
                                 </form>
                             </div>

@@ -42,79 +42,6 @@
 
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header"><h2 class="mb-0 hp-text-color-black-1">Partner</h2></div>
-                    <div class="card-body">
-                        <div class="row justify-content-between">
-                            <div class="col-12 mt-16">
-
-                                <form method="POST" action="{{route('publisher.settings.handleUpdatePartner')}}">
-                                    @csrf
-                                    @php
-                                        $partner = $user->partner;
-                                    @endphp
-                                    <div class="mb-24">
-                                        <label for="about" class="form-label">About</label>
-                                        <input type="text" class="form-control" id="about" name="about"
-                                               value="{{$partner->about}}">
-                                    </div>
-
-                                    <div class="mb-24">
-                                        <label for="date_of_birth" class="form-label">Date of birth</label>
-                                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth"
-                                               value="{{$partner->date_of_birth}}">
-                                    </div>
-
-                                    <div class="mb-24">
-                                        <label for="address" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="address" name="address"
-                                               value="{{$partner->address}}">
-                                    </div>
-                                    <div class="mb-24">
-
-                                        <label for="website" class="form-label">Website URL</label>
-                                        <input type="text" class="form-control" id="website" name="website"
-                                               value="{{$partner->website}}">
-                                    </div>
-
-                                    <div class="row mb-24">
-                                        <div class="col-6">
-                                            <label for="linkedin" class="form-label">Linkedin URL</label>
-                                            <input type="text" class="form-control" id="linkedin" name="linkedin"
-                                                   value="{{$partner->linkedin}}">
-                                        </div>
-                                        <div class="col-6">
-                                            <label for="facebook" class="form-label">Facebook URL</label>
-                                            <input type="text" class="form-control" id="facebook" name="facebook"
-                                                   value="{{$partner->facebook}}">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-24">
-                                        <div class="col-6">
-                                            <label for="instagram" class="form-label">Instagram URL</label>
-                                            <input type="text" class="form-control" id="instagram" name="instagram"
-                                                   value="{{$partner->instagram}}">
-                                        </div>
-                                        <div class="col-6">
-                                            <label for="youtube" class="form-label">Youtube URL</label>
-                                            <input type="text" class="form-control" id="youtube" name="youtube"
-                                                   value="{{$partner->youtube}}">
-                                        </div>
-                                    </div>
-
-
-                                    <button type="submit" class="btn btn-primary">Save</button>
-
-                                </form>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="card">
                     <div class="card-header"><h2 class="mb-0 hp-text-color-black-1">Profile</h2></div>
                     <div class="card-body">
                         <div class="row justify-content-between">
@@ -123,7 +50,7 @@
 
                                 @include('partials.alert_validation')
 
-                                <form method="POST" action="{{route('publisher.settings.handleUpdateProfile')}}">
+                                <form method="POST" action="{{route('merchant.settings.handleUpdateProfile')}}">
                                     @csrf
 
                                     <div class="row mb-24">
@@ -176,7 +103,7 @@
                             <div class="col-12 mt-16">
 
 
-                                <form method="POST" action="{{route('publisher.settings.handleUpdatePassword')}}">
+                                <form method="POST" action="{{route('merchant.settings.handleUpdatePassword')}}">
                                     @csrf
 
                                     <div class="mb-24">
@@ -216,29 +143,4 @@
     </div>
 @endsection
 @push('js')
-    <script>
-
-
-        $("#is_sale_tracking").click(function () {
-            if ($("#is_sale_tracking").is(':checked')) {
-                $("#sale_commission_section").find('span.text-danger').html('*');
-                $("#sale_commission_section :input").prop("disabled", false);
-            } else {
-                $("#sale_commission_section").find('span.text-danger').html('');
-                $("#sale_commission_section :input").prop("disabled", true);
-            }
-        });
-
-        $("#is_click_tracking").click(function () {
-            if ($("#is_click_tracking").is(':checked')) {
-                $("#click_commission_section").find('span.text-danger').html('*');
-                $("#click_commission_section :input").prop("disabled", false);
-            } else {
-                $("#click_commission_section").find('span.text-danger').html('');
-                $("#click_commission_section :input").prop("disabled", true);
-            }
-        });
-
-
-    </script>
 @endpush

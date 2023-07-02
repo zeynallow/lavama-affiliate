@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller as Controller;
 use App\Models\Merchant\Merchant;
 use App\Models\Merchant\MerchantUser;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class MerchantController extends Controller
 {
@@ -14,6 +13,12 @@ class MerchantController extends Controller
     public function create()
     {
         return view('merchant.merchants.create');
+    }
+
+    public function edit()
+    {
+        $merchant = auth()->user()?->getDefaultMerchant();
+        return view('merchant.merchants.edit', compact('merchant'));
     }
 
     public function store(Request $request)
@@ -46,5 +51,32 @@ class MerchantController extends Controller
 
         # Redirect Dashboard
         return redirect()->route('merchant.dashboard')->with(['success' => 'Merchant created successfully']);
+    }
+
+    public function update(Request $request)
+    {
+        # Validation
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'email' => 'nullable|email'
+        ]);
+
+        # Update
+        $merchant = auth()->user()?->getDefaultMerchant();
+
+        $merchant->name = $request->name;
+        $merchant->description = $request->description;
+        $merchant->email = $request->email;
+        $merchant->website = $request->website;
+        $merchant->facebook = $request->facebook;
+        $merchant->instagram = $request->instagram;
+        $merchant->youtube = $request->youtube;
+        $merchant->linkedin = $request->linkedin;
+//        $merchant->logo = $request->logo;
+        $merchant->save();
+
+        # Redirect Dashboard
+        return redirect()->back()->with(['success' => 'Merchant updated successfully']);
     }
 }

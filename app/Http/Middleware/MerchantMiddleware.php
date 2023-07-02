@@ -22,7 +22,7 @@ class MerchantMiddleware
         }
 
         # Redirect Create New Merchant
-        return redirect()->route('merchant.merchant.create');
+        return redirect()->route('merchant.merchants.create');
 
     }
 }

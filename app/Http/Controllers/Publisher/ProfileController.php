@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Publisher;
 use App\Http\Controllers\Controller as Controller;
 use App\Models\Partner\Partner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -45,7 +46,26 @@ class ProfileController extends Controller
 
     public function handleUpdatePassword(Request $request)
     {
-        /// ..
+        # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $user = auth()->user();
+
+        $checkOldPassword = Hash::check($request->old_password, $user->password);
+
+        if ($checkOldPassword) {
+
+            $user->password = bcrypt($request->password);
+            $user->save();
+
+            return redirect()->back()->with(['success' => 'User password updated successfully']);
+        } else {
+            return redirect()->back()->with(['error' => 'Old password is wrong']);
+        }
+
     }
 
     public function handleCreatePartner(Request $request)

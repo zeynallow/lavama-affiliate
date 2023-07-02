@@ -30,8 +30,8 @@ Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers\Auth'], f
 Route::group(['prefix' => 'merchant', 'namespace' => 'App\Http\Controllers\Merchant', 'middleware' => ['auth', 'merchant_user']], function () {
 
     # Merchant Create, Getting Started
-    Route::get('create', 'MerchantController@create')->name('merchant.merchant.create');
-    Route::post('create', 'MerchantController@store')->name('merchant.merchant.store');
+    Route::get('create', 'MerchantController@create')->name('merchant.merchants.create');
+    Route::post('create', 'MerchantController@store')->name('merchant.merchants.store');
 
     Route::group(['middleware' => ['merchant']], function () {
 
@@ -54,6 +54,20 @@ Route::group(['prefix' => 'merchant', 'namespace' => 'App\Http\Controllers\Merch
         Route::get('partners', 'PartnerController@index')->name('merchant.partners');
         Route::get('partners/join-requests', 'PartnerController@joinRequests')->name('merchant.partners.joinRequests');
         Route::post('partners/join-requests', 'PartnerController@handleJoinRequests')->name('merchant.partners.handleJoinRequests');
+
+        # Settings
+        Route::group(['prefix' => 'settings'], function () {
+
+            # Profile
+            Route::get('profile', 'ProfileController@index')->name('merchant.settings.profile');
+            Route::post('profile/update-profile', 'ProfileController@handleUpdateProfile')->name('merchant.settings.handleUpdateProfile');
+            Route::post('profile/update-password', 'ProfileController@handleUpdatePassword')->name('merchant.settings.handleUpdatePassword');
+
+            # Merchant Edit
+            Route::get('merchants/edit', 'MerchantController@edit')->name('merchant.settings.merchant');
+            Route::post('merchants/edit', 'MerchantController@update')->name('merchant.settings.merchantUpdate');
+
+        });
 
     });
 
@@ -78,9 +92,9 @@ Route::group(['prefix' => 'publisher', 'namespace' => 'App\Http\Controllers\Publ
 
         # Settings
         Route::group(['prefix' => 'settings'], function () {
+
             # Profile
             Route::get('profile', 'ProfileController@index')->name('publisher.settings.profile');
-
             Route::post('profile/update-profile', 'ProfileController@handleUpdateProfile')->name('publisher.settings.handleUpdateProfile');
             Route::post('profile/update-partner', 'ProfileController@handleUpdatePartner')->name('publisher.settings.handleUpdatePartner');
             Route::post('profile/update-password', 'ProfileController@handleUpdatePassword')->name('publisher.settings.handleUpdatePassword');
