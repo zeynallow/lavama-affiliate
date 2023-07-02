@@ -40,7 +40,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -60,6 +60,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'merchant' => \App\Http\Middleware\MerchantMiddleware::class,
+        'partner' => \App\Http\Middleware\PartnerMiddleware::class,
         'merchant_user' => \App\Http\Middleware\MerchantUserMiddleware::class,
         'publisher_user' => \App\Http\Middleware\PublisherUserMiddleware::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,

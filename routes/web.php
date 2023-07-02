@@ -62,15 +62,29 @@ Route::group(['prefix' => 'merchant', 'namespace' => 'App\Http\Controllers\Merch
 # Publisher
 Route::group(['prefix' => 'publisher', 'namespace' => 'App\Http\Controllers\Publisher', 'middleware' => ['auth', 'publisher_user']], function () {
 
-    # Dashboard
-    Route::get('dashboard', 'DashboardController@index')->name('publisher.dashboard');
+    Route::get('profile/create-partner', 'ProfileController@createPartner')->name('publisher.settings.createPartner');
+    Route::post('profile/create-partner', 'ProfileController@handleCreatePartner')->name('publisher.settings.handleCreatePartner');
 
-    # Campaign
-    Route::get('campaigns', 'CampaignController@index')->name('publisher.campaigns');
+    Route::group(['middleware' => ['partner']], function () {
+        # Dashboard
+        Route::get('dashboard', 'DashboardController@index')->name('publisher.dashboard');
 
-    # Merchant
-    Route::get('merchants', 'MerchantController@index')->name('publisher.merchants');
-    Route::post('merchants/join-request', 'MerchantController@handleJoinRequest')->name('publisher.merchants.handleJoinRequest');
+        # Campaign
+        Route::get('campaigns', 'CampaignController@index')->name('publisher.campaigns');
 
+        # Merchant
+        Route::get('merchants', 'MerchantController@index')->name('publisher.merchants');
+        Route::post('merchants/join-request', 'MerchantController@handleJoinRequest')->name('publisher.merchants.handleJoinRequest');
 
+        # Settings
+        Route::group(['prefix' => 'settings'], function () {
+            # Profile
+            Route::get('profile', 'ProfileController@index')->name('publisher.settings.profile');
+
+            Route::post('profile/update-profile', 'ProfileController@handleUpdateProfile')->name('publisher.settings.handleUpdateProfile');
+            Route::post('profile/update-partner', 'ProfileController@handleUpdatePartner')->name('publisher.settings.handleUpdatePartner');
+            Route::post('profile/update-password', 'ProfileController@handleUpdatePassword')->name('publisher.settings.handleUpdatePassword');
+
+        });
+    });
 });

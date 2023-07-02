@@ -35,7 +35,7 @@
                                 <table class="table align-middle table-hover table-borderless">
                                     <thead class="border-bottom">
                                     <tr>
-                                        <th>#</th>
+                                        <th>Merchant</th>
                                         <th>Name</th>
                                         <th>Duration</th>
                                         <th>Program</th>
@@ -47,7 +47,7 @@
                                     <tbody>
                                     @foreach($campaigns as $campaign)
                                         <tr>
-                                            <td>{{$campaign->id}}</td>
+                                            <td>{{$campaign->program?->merchant?->name}}</td>
                                             <td>{{$campaign->name}}</td>
                                             <td>{{$campaign->duration}}</td>
                                             <td>{{$campaign->program?->presenter_title}}</td>

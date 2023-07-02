@@ -5,6 +5,7 @@ namespace App\Models\User;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Enums\Merchant\MerchantPartnerStatusEnum;
 use App\Enums\User\UserProviderEnum;
+use App\Models\Partner\Partner;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -57,6 +58,11 @@ class User extends Authenticatable
     public function merchants()
     {
         return $this->belongsToMany(Merchant::class, 'merchant_users');
+    }
+
+    public function partner()
+    {
+        return $this->hasOne(Partner::class, 'user_id');
     }
 
     public function joined_merchants()

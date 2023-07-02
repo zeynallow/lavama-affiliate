@@ -20,6 +20,7 @@ class Campaign extends Model
     {
         return $this->belongsTo('App\Models\Program\Program', 'program_id');
     }
+    
 
     public function scopeOwner($query)
     {
@@ -30,7 +31,8 @@ class Campaign extends Model
             ->where('programs.owner_user_id', $user->id);
     }
 
-    public function scopeJoinedPartner($query){
+    public function scopeJoinedPartner($query)
+    {
         $user = auth()->user();
         $query->select('campaigns.*')
             ->leftJoin('programs', 'programs.id', 'campaigns.program_id')

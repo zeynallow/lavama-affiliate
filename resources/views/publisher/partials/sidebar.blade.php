@@ -68,7 +68,7 @@
 
                 <ul class="submenu-children" data-level="1">
                     <li>
-                        <a href="#">
+                        <a href="{{route('publisher.settings.profile')}}">
                             <span>Profile</span>
                         </a>
                     </li>

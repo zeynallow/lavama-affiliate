@@ -19,6 +19,11 @@ class Program extends Model
         'click_commission_type' => ProgramCommissionTypeEnum::class,
     ];
 
+    public function merchant()
+    {
+        return $this->belongsTo('App\Models\Merchant\Merchant', 'owner_merchant_id');
+    }
+
     public function scopeOwner($query)
     {
         $user = auth()->user();
