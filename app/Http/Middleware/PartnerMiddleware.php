@@ -22,7 +22,7 @@ class PartnerMiddleware
         }
 
         # Redirect Create New Merchant
-        return redirect()->route('publisher.profile.createPartner');
+        return redirect()->route('partner.profile.createPartner');
 
     }
 }

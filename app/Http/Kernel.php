@@ -62,7 +62,7 @@ class Kernel extends HttpKernel
         'merchant' => \App\Http\Middleware\MerchantMiddleware::class,
         'partner' => \App\Http\Middleware\PartnerMiddleware::class,
         'merchant_user' => \App\Http\Middleware\MerchantUserMiddleware::class,
-        'publisher_user' => \App\Http\Middleware\PublisherUserMiddleware::class,
+        'partner_user' => \App\Http\Middleware\PartnerUserMiddleware::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('campaign_id')->index()->unsigned();
             $table->bigInteger('user_id')->index()->unsigned();
+            $table->uuid('uid')->default(DB::raw('(UUID())'));
         });
     }
 

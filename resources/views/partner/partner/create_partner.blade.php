@@ -47,7 +47,7 @@
 
                                 @include('partials.alert_validation')
 
-                                <form method="POST" action="{{route('publisher.profile.handleCreatePartner')}}">
+                                <form method="POST" action="{{route('partner.profile.handleCreatePartner')}}">
                                     @csrf
 
 

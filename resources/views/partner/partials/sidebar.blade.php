@@ -6,7 +6,7 @@
 
         <ul>
             <li>
-                <a href="{{route('publisher.dashboard')}}" {!! (\Request::route()->getName() == 'merchant.dashboard') ? 'class="active"' : null!!}>
+                <a href="{{route('partner.dashboard')}}" {!! (\Request::route()->getName() == 'merchant.dashboard') ? 'class="active"' : null!!}>
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-bar-chart-box-line"></i></span>
                         <span>Analytics</span>
@@ -15,7 +15,7 @@
             </li>
 
             <li>
-                <a href="{{route('publisher.campaigns')}}">
+                <a href="{{route('partner.campaigns')}}">
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
                         <span>Campaigns</span>
@@ -24,7 +24,7 @@
             </li>
 
             <li>
-                <a href="{{route('publisher.merchants')}}">
+                <a href="{{route('partner.merchants')}}">
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
                         <span>Merchants</span>
@@ -58,7 +58,7 @@
 
 
             <li>
-                <a href="{{route('publisher.profile.index')}}">
+                <a href="{{route('partner.profile.index')}}">
                     <span>
                         <span class="submenu-item-icon"><i class="hp-text-color-dark-0 ri-2x ri-apps-2-line"></i></span>
                         <span>Profile</span>

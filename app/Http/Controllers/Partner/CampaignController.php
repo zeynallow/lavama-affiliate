@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Publisher;
+namespace App\Http\Controllers\Partner;
 
 use App\Enums\Campaign\CampaignStatusEnum;
 use App\Enums\Program\ProgramCommissionTypeEnum;
@@ -36,7 +36,7 @@ class CampaignController extends Controller
     {
         $campaigns = Campaign::joinedPartner()->activated()->orderBy('id', 'desc')->paginate(10); #Owner Required
 
-        return view('publisher.campaigns.index', compact('campaigns'));
+        return view('partner.campaigns.index', compact('campaigns'));
     }
 
 

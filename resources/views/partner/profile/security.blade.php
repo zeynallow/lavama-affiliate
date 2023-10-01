@@ -20,7 +20,8 @@
 
                 <div class="row bg-black-0 hp-bg-color-dark-100 rounded pe-16 pe-sm-32 mx-0">
 
-                    @include('publisher.profile.partials.sidebar')
+
+                    @include('partner.profile.partials.sidebar')
 
                     <div class="hp-profile-mobile-menu offcanvas offcanvas-start" tabindex="-1" id="profileMobileMenu"
                          aria-labelledby="profileMobileMenuLabel">
@@ -50,14 +51,14 @@
                         </div>
 
                         <div class="offcanvas-body p-0">
-                            @include('publisher.profile.partials.sidebar')
+                            @include('partner.profile.partials.sidebar')
                         </div>
                     </div>
 
                     <div class="col ps-16 ps-sm-32 py-24 py-sm-32 overflow-hidden">
                         <div class="row">
                             <div class="col-12 col-md-8">
-                                <h2>Personal Informations</h2>
+                                <h2>Security</h2>
                                 <p class="hp-p1-body mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     Curabitur sodales sit amet nunc et vehicula. Mauris sed lectus nisi.</p>
                             </div>
@@ -68,45 +69,39 @@
 
                             <div class="col-12">
                                 <div class="row align-items-center justify-content-between">
+                                    <div class="col-12 col-md-6">
+                                        <h3>Change Password</h3>
+                                    </div>
 
-                                    <div class="col-12 hp-profile-content-list mt-8 pb-0 pb-sm-120">
-                                        @include('partials.alert_validation')
 
-                                        <form method="POST" action="{{route('publisher.profile.handleUpdateProfile')}}">
+                                    <div class="col-12 hp-profile-content-list mt-8">
+                                        <form method="POST"
+                                              action="{{route('partner.profile.handleUpdatePassword')}}">
                                             @csrf
 
-                                            <div class="row mb-24">
-                                                <div class="col-6">
-                                                    <label for="name" class="form-label">Last Name <span
-                                                            class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="last_name"
-                                                           name="last_name"
-                                                           value="{{$user->last_name}}">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="name" class="form-label">First Name <span
-                                                            class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="first_name"
-                                                           name="first_name"
-                                                           value="{{$user->first_name}}">
-                                                </div>
+                                            <div class="mb-24">
+                                                <label for="old_password" class="form-label">Old Password <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="password" class="form-control" id="old_password"
+                                                       name="old_password">
                                             </div>
 
                                             <div class="row mb-24">
                                                 <div class="col-6">
-                                                    <label for="name" class="form-label">E-mail<span
+                                                    <label for="password" class="form-label">New password <span
                                                             class="text-danger">*</span></label>
-                                                    <input type="email" class="form-control" id="email" name="email"
-                                                           value="{{$user->email}}">
+                                                    <input type="password" class="form-control" id="password"
+                                                           name="password">
                                                 </div>
                                                 <div class="col-6">
-                                                    <label for="name" class="form-label">Phone <span
+                                                    <label for="password_confirmation" class="form-label">Confirm
+                                                        Password <span
                                                             class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="phone" name="phone"
-                                                           value="{{$user->phone}}">
+                                                    <input type="password" class="form-control"
+                                                           id="password_confirmation"
+                                                           name="password_confirmation">
                                                 </div>
                                             </div>
-
 
                                             <button type="submit" class="btn btn-primary">Save</button>
 
@@ -114,12 +109,12 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
 @endsection
 @push('js')
 @endpush

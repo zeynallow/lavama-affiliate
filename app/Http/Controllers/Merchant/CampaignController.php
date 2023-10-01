@@ -51,7 +51,7 @@ class CampaignController extends Controller
         # Validation
         $request->validate([
             'name' => 'required',
-            'name_for_publisher' => 'nullable',
+            'name_for_partner' => 'nullable',
             'description' => 'required',
             'program_id' => 'required|exists:programs,id,owner_merchant_id,' . $this->user->getDefaultMerchantId(),
             'category_ids' => 'required',
@@ -60,9 +60,9 @@ class CampaignController extends Controller
             'cookie_lifetime' => 'required|integer'
         ]);
 
-        # Set Name For Publisher (Left blank)
-        if (is_null($request->name_for_publisher)) {
-            $request->name_for_publisher = $request->name;
+        # Set Name For Partner (Left blank)
+        if (is_null($request->name_for_partner)) {
+            $request->name_for_partner = $request->name;
         }
 
         # Check Lifetime Duration
@@ -77,14 +77,14 @@ class CampaignController extends Controller
             # Create
             $campaign = new Campaign();
             $campaign->name = $request->name;
-            $campaign->name_for_publisher = $request->name_for_publisher;
+            $campaign->name_for_partner = $request->name_for_partner;
             $campaign->description = $request->description;
             $campaign->program_id = $request->program_id;
             $campaign->start_datetime = $request->start_datetime;
             $campaign->end_datetime = $request->end_datetime;
             $campaign->cover = null; # ..
             $campaign->is_target_all = 1; # ..
-            $campaign->for_all_publishers = 1; # ..
+            $campaign->for_all_partners = 1; # ..
             $campaign->cookie_lifetime = $request->cookie_lifetime;
             $campaign->status = CampaignStatusEnum::Pending;
             $campaign->owner_user_id = $this->user->id;

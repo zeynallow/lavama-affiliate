@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Publisher;
+namespace App\Http\Controllers\Partner;
 
 use App\Enums\Merchant\MerchantPartnerStatusEnum;
 use App\Http\Controllers\Controller as Controller;
@@ -15,7 +15,7 @@ class MerchantController extends Controller
     {
         # Sort Active Campaign Merchants
         $merchants = Merchant::orderBy('created_at', 'desc')->paginate(10);
-        return view('publisher.merchants.index', compact('merchants'));
+        return view('partner.merchants.index', compact('merchants'));
     }
 
     public function handleJoinRequest(Request $request)

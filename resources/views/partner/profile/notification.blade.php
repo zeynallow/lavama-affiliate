@@ -20,7 +20,7 @@
 
                 <div class="row bg-black-0 hp-bg-color-dark-100 rounded pe-16 pe-sm-32 mx-0">
 
-                    @include('publisher.profile.partials.sidebar')
+                    @include('partner.profile.partials.sidebar')
 
                     <div class="hp-profile-mobile-menu offcanvas offcanvas-start" tabindex="-1" id="profileMobileMenu"
                          aria-labelledby="profileMobileMenuLabel">
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="offcanvas-body p-0">
-                            @include('publisher.profile.partials.sidebar')
+                            @include('partner.profile.partials.sidebar')
                         </div>
                     </div>
 

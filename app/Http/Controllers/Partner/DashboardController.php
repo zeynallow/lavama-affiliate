@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Publisher;
+namespace App\Http\Controllers\Partner;
 
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
@@ -11,6 +11,6 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('publisher.dashboard');
+        return view('partner.dashboard');
     }
 }

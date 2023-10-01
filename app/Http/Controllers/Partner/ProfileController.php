@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Publisher;
+namespace App\Http\Controllers\Partner;
 
 use App\Http\Controllers\Controller as Controller;
 use App\Models\Partner\Partner;
@@ -12,13 +12,13 @@ class ProfileController extends Controller
 
     public function createPartner()
     {
-        return view('publisher.profile.create_partner');
+        return view('partner.profile.create_partner');
     }
 
     public function index()
     {
         $user = auth()->user();
-        return view('publisher.profile.index', compact('user'));
+        return view('partner.profile.index', compact('user'));
     }
 
     public function handleUpdateProfile(Request $request)
@@ -48,7 +48,7 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $partner = $user->partner;
-        return view('publisher.profile.partner', compact('user', 'partner'));
+        return view('partner.profile.partner', compact('user', 'partner'));
     }
 
     public function handleCreatePartner(Request $request)
@@ -73,7 +73,7 @@ class ProfileController extends Controller
         $partner->save();
 
         # Redirect Dashboard
-        return redirect()->route('publisher.dashboard')->with(['success' => 'Partner created successfully']);
+        return redirect()->route('partner.dashboard')->with(['success' => 'Partner created successfully']);
     }
 
     public function handleUpdatePartner(Request $request)
@@ -104,7 +104,7 @@ class ProfileController extends Controller
     public function security()
     {
         $user = auth()->user();
-        return view('publisher.profile.security', compact('user'));
+        return view('partner.profile.security', compact('user'));
     }
 
     public function handleUpdatePassword(Request $request)
@@ -134,6 +134,6 @@ class ProfileController extends Controller
     public function notification()
     {
         $user = auth()->user();
-        return view('publisher.profile.notification', compact('user'));
+        return view('partner.profile.notification', compact('user'));
     }
 }

@@ -77,37 +77,37 @@ Route::group(['prefix' => 'merchant', 'namespace' => 'App\Http\Controllers\Merch
 
 });
 
-# Publisher
-Route::group(['prefix' => 'publisher', 'namespace' => 'App\Http\Controllers\Publisher', 'middleware' => ['auth', 'publisher_user']], function () {
+# Partner
+Route::group(['prefix' => 'partner', 'namespace' => 'App\Http\Controllers\Partner', 'middleware' => ['auth', 'partner_user']], function () {
 
-    Route::get('profile/create-partner', 'ProfileController@createPartner')->name('publisher.profile.createPartner');
-    Route::post('profile/create-partner', 'ProfileController@handleCreatePartner')->name('publisher.profile.handleCreatePartner');
+    Route::get('profile/create-partner', 'ProfileController@createPartner')->name('partner.profile.createPartner');
+    Route::post('profile/create-partner', 'ProfileController@handleCreatePartner')->name('partner.profile.handleCreatePartner');
 
     Route::group(['middleware' => ['partner']], function () {
         # Dashboard
-        Route::get('dashboard', 'DashboardController@index')->name('publisher.dashboard');
+        Route::get('dashboard', 'DashboardController@index')->name('partner.dashboard');
 
         # Campaign
-        Route::get('campaigns', 'CampaignController@index')->name('publisher.campaigns');
+        Route::get('campaigns', 'CampaignController@index')->name('partner.campaigns');
 
         # Merchant
-        Route::get('merchants', 'MerchantController@index')->name('publisher.merchants');
-        Route::post('merchants/join-request', 'MerchantController@handleJoinRequest')->name('publisher.merchants.handleJoinRequest');
+        Route::get('merchants', 'MerchantController@index')->name('partner.merchants');
+        Route::post('merchants/join-request', 'MerchantController@handleJoinRequest')->name('partner.merchants.handleJoinRequest');
 
         # Settings
         Route::group(['prefix' => 'profile'], function () {
 
             # Profile
-            Route::get('/', 'ProfileController@index')->name('publisher.profile.index');
-            Route::post('profile/update-profile', 'ProfileController@handleUpdateProfile')->name('publisher.profile.handleUpdateProfile');
+            Route::get('/', 'ProfileController@index')->name('partner.profile.index');
+            Route::post('profile/update-profile', 'ProfileController@handleUpdateProfile')->name('partner.profile.handleUpdateProfile');
 
-            Route::get('partner', 'ProfileController@partner')->name('publisher.profile.partner');
-            Route::post('partner/update-partner', 'ProfileController@handleUpdatePartner')->name('publisher.profile.handleUpdatePartner');
+            Route::get('partner', 'ProfileController@partner')->name('partner.profile.partner');
+            Route::post('partner/update-partner', 'ProfileController@handleUpdatePartner')->name('partner.profile.handleUpdatePartner');
 
-            Route::get('security', 'ProfileController@security')->name('publisher.profile.security');
-            Route::post('security/update-password', 'ProfileController@handleUpdatePassword')->name('publisher.profile.handleUpdatePassword');
+            Route::get('security', 'ProfileController@security')->name('partner.profile.security');
+            Route::post('security/update-password', 'ProfileController@handleUpdatePassword')->name('partner.profile.handleUpdatePassword');
 
-            Route::get('notification', 'ProfileController@notification')->name('publisher.profile.notification');
+            Route::get('notification', 'ProfileController@notification')->name('partner.profile.notification');
 
         });
     });

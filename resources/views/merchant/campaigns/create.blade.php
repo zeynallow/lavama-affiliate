@@ -71,10 +71,10 @@
                                     </div>
 
                                     <div class="mb-24">
-                                        <label for="name_for_publisher" class="form-label">Name for publisher</label>
-                                        <input type="text" class="form-control" id="name_for_publisher"
-                                               name="name_for_publisher"
-                                               value="{{old('name_for_publisher')}}">
+                                        <label for="name_for_partner" class="form-label">Name for partner</label>
+                                        <input type="text" class="form-control" id="name_for_partner"
+                                               name="name_for_partner"
+                                               value="{{old('name_for_partner')}}">
                                         <small>If left blank, it will be the same as the common name</small>
                                     </div>
 
@@ -148,10 +148,10 @@
                                     <div class="row mb-24">
                                         <div class="col-6">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="for_all_publishers"
-                                                       name="for_all_publishers" value="1" disabled>
-                                                <label class="form-check-label" for="for_all_publishers">
-                                                    <span class="ms-12">Target all publishers</span>
+                                                <input class="form-check-input" type="checkbox" id="for_all_partners"
+                                                       name="for_all_partners" value="1" disabled>
+                                                <label class="form-check-label" for="for_all_partners">
+                                                    <span class="ms-12">Target all partners</span>
                                                 </label>
                                             </div>
                                         </div>

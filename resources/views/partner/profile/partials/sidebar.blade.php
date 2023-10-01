@@ -40,8 +40,8 @@
     <div class="hp-profile-menu-body pt-10 w-100 text-start mt-48 mt-lg-0">
         <ul class="me-n1 mx-lg-n12">
             <li class="mt-4 mb-16">
-                <a href="{{route('publisher.profile.index')}}"
-                   class="{{(request()->route()->getName() == 'publisher.profile.index') ? 'active' : null}} position-relative text-black-80 hp-text-color-dark-30 hp-hover-text-color-primary-1 hp-hover-text-color-dark-0 py-12 px-24 d-flex align-items-center">
+                <a href="{{route('partner.profile.index')}}"
+                   class="{{(request()->route()->getName() == 'partner.profile.index') ? 'active' : null}} position-relative text-black-80 hp-text-color-dark-30 hp-hover-text-color-primary-1 hp-hover-text-color-dark-0 py-12 px-24 d-flex align-items-center">
                     <i class="iconly-Curved-User me-16"></i>
                     <span>Personal Information</span>
 
@@ -52,8 +52,8 @@
             </li>
 
             <li class="mt-4 mb-16">
-                <a href="{{route('publisher.profile.notification')}}"
-                   class=" {{(request()->route()->getName() == 'publisher.profile.notification') ? 'active' : null}} position-relative text-black-80 hp-text-color-dark-30 hp-hover-text-color-primary-1 hp-hover-text-color-dark-0 py-12 px-24 d-flex align-items-center">
+                <a href="{{route('partner.profile.notification')}}"
+                   class=" {{(request()->route()->getName() == 'partner.profile.notification') ? 'active' : null}} position-relative text-black-80 hp-text-color-dark-30 hp-hover-text-color-primary-1 hp-hover-text-color-dark-0 py-12 px-24 d-flex align-items-center">
                     <i class="iconly-Curved-Notification me-16"></i>
                     <span>Notifications</span>
 
@@ -64,8 +64,8 @@
             </li>
 
             <li class="mt-4 mb-16">
-                <a href="{{route('publisher.profile.partner')}}"
-                   class="{{(request()->route()->getName() == 'publisher.profile.partner') ? 'active' : null}} position-relative text-black-80 hp-text-color-dark-30 hp-hover-text-color-primary-1 hp-hover-text-color-dark-0 py-12 px-24 d-flex align-items-center">
+                <a href="{{route('partner.profile.partner')}}"
+                   class="{{(request()->route()->getName() == 'partner.profile.partner') ? 'active' : null}} position-relative text-black-80 hp-text-color-dark-30 hp-hover-text-color-primary-1 hp-hover-text-color-dark-0 py-12 px-24 d-flex align-items-center">
                     <i class="iconly-Curved-Heart me-16"></i>
                     <span>Partner</span>
 
@@ -76,8 +76,8 @@
             </li>
 
             <li class="mt-4 mb-16">
-                <a href="{{route('publisher.profile.security')}}"
-                   class="{{(request()->route()->getName() == 'publisher.profile.security') ? 'active' : null}} position-relative text-black-80 hp-text-color-dark-30 hp-hover-text-color-primary-1 hp-hover-text-color-dark-0 py-12 px-24 d-flex align-items-center">
+                <a href="{{route('partner.profile.security')}}"
+                   class="{{(request()->route()->getName() == 'partner.profile.security') ? 'active' : null}} position-relative text-black-80 hp-text-color-dark-30 hp-hover-text-color-primary-1 hp-hover-text-color-dark-0 py-12 px-24 d-flex align-items-center">
                     <i class="iconly-Curved-Password me-16"></i>
                     <span>Security</span>
 

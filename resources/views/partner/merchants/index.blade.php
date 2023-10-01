@@ -51,7 +51,7 @@
                                                 @endphp
                                                 @if(is_null($partner))
                                                     <form method="POST"
-                                                          action="{{route('publisher.merchants.handleJoinRequest')}}">
+                                                          action="{{route('partner.merchants.handleJoinRequest')}}">
                                                         @csrf
                                                         <input type="hidden" name="merchant_id"
                                                                value="{{$merchant->id}}">
